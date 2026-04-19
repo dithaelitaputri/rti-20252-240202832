@@ -88,17 +88,18 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | *Mengumpulkan artikel dari Emerald, IEEE Xplore, Frontiers, dll.* | *Sampling Bias: Hanya mengambil artikel dari penerbit tertentu.* |
+| Data → Processing | *Melakukan tinjauan pustaka terhadap artikel terkait ChatGPT di dunia akademis.*|*Cherry-picking: Memilih hanya artikel yang mendukung argumen tertentu.* |
+| Processing → Analysis | *Menganalisis dampak positif dan negatif penggunaan ChatGPT.*| *Confounding Variable: Faktor luar seperti kebijakan institusi yang berbeda-beda.*|
+| Analysis → Inference | *Menyimpulkan peluang dan tantangan ChatGPT di bidang TI.* | * Inference bias: Menggeneralisasi dampak ChatGPT tanpa melihat variasi sub-bidang TI. * |
+| Inference → Knowledge | *Knowledge	
+Menghasilkan panduan etika penggunaan AI bagi akademisi.*| *Construct Validity: Metrik "kualitas akademis" mungkin sulit diukur secara objektif.* |
 
 **Distorsi paling besar di tahap:** ________________________
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
+1. ChatGPT menyajikan informasi tanpa rujukan jelas, sehingga asal-usul data menjadi kabur (distorsi validitas).
+2. Ketidakseimbangan data pada bidang tertentu yang membuat AI memberikan jawaban yang kurang akurat
 
 ---
 
@@ -108,12 +109,12 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | *Peneliti wajib melaporkan semua data, termasuk outlier, karena penghapusan tanpa dasar ilmiah yang kuat termasuk manipulasi data* |
+| Transparansi | *Harus mencantumkan rujukan dan metode yang digunakan secara jelas agar dapat divalidasi oleh peneliti lain* |
+| Peer review | *Penilai (reviewer) berhak mengetahui adanya data yang tidak konsisten untuk menilai validitas temuan tersebut.* |
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
+> Melaporkan kedua versi hasil (dengan dan tanpa outlier). Dalam riset, kegagalan atau ketidakkonsistenan data (negative results) adalah sebuah kontribusi pengetahuan yang valid dan harus dilaporkan demi integritas akademik.
 
 ---
 
