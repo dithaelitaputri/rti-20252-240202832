@@ -83,6 +83,7 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 **Paper yang dipilih:**
 > Judul: Peluang dan Tantangan Penggunaan ChatGPT dalam Lingkungan Riset Teknologi Informasi: Sebuah Tinjauan
 > Penulis (Tahun): Stanislaus Jiwandana Pinasthika & Yuniar Indrihapsari (2023)
+
 > Link jurnal: https://www.researchgate.net/profile/Stanislaus-Pinasthika/publication/375422847_Peluang_dan_Tantangan_Penggunaan_ChatGPT_dalam_Lingkungan_Riset_Teknologi_Informasi_Sebuah_Tinjauan/links/6549f489ce88b87031d13823/Peluang-dan-Tantangan-Penggunaan-ChatGPT-dalam-Lingkungan-Riset-Teknologi-Informasi-Sebuah-Tinjauan.pdf
 
 
