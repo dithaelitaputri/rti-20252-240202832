@@ -93,8 +93,7 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 | Data → Processing | *Melakukan tinjauan pustaka terhadap artikel terkait ChatGPT di dunia akademis.*|*Cherry-picking: Memilih hanya artikel yang mendukung argumen tertentu.* |
 | Processing → Analysis | *Menganalisis dampak positif dan negatif penggunaan ChatGPT.*| *Confounding Variable: Faktor luar seperti kebijakan institusi yang berbeda-beda.*|
 | Analysis → Inference | *Menyimpulkan peluang dan tantangan ChatGPT di bidang TI.* | * Inference bias: Menggeneralisasi dampak ChatGPT tanpa melihat variasi sub-bidang TI. * |
-| Inference → Knowledge | *Knowledge	
-Menghasilkan panduan etika penggunaan AI bagi akademisi.*| *Construct Validity: Metrik "kualitas akademis" mungkin sulit diukur secara objektif.* |
+| Inference → Knowledge | *Menghasilkan panduan etika penggunaan AI bagi akademisi.* | *Construct Validity: Metrik "kualitas akademis" mungkin sulit diukur secara objektif.* |
 
 **Distorsi paling besar di tahap:** ________________________
 
@@ -125,13 +124,13 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4* | *Contoh: 2* | *Contoh: 5* |
-| Jenis data yang dikumpulkan | | | |
+| Kesesuaian dengan topik (1–5) | * 3. Digunakan untuk menguji akurasi jawaban AI.* | *4.Pahami persepsi mahasiswa/dosen terhadap AI. * | *5. ChatGPT digunakan sebagai artefak untuk memecahkan masalah koding. * |
+| Jenis data yang dikumpulkan | * Metrik akurasi, nilai ujian* | * Hasil wawancara, pandangan subjektif.* | *Performa sistem, efisiensi debugging. * |
 | Limitasi paradigma | | | |
 
 **Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
-
+**Alasan:** 
+Karena fokus utama adalah membangun dan mengevaluasi penggunaan ChatGPT sebagai instrumen/artefak praktis untuk membantu tugas-tugas teknis seperti pemrograman dan perencanaan studi.
 ---
 
 ## Refleksi
