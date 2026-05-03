@@ -67,23 +67,23 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : ____________________
-  Konteks  : ____________________
+  Domain   : Kecerdasan Buatan (AI) & Pendidikan Teknologi Informasi.
+  Konteks  : Penggunaan ChatGPT untuk membantu mahasiswa atau peneliti dalam mengerjakan tugas dan riset.
 
 System Context
-  Input       : ____________________
-  Process     : ____________________
-  Output      : ____________________
-  Outcome     : ____________________
-  Constraints : ____________________
-  Stakeholders: ____________________
+  Input       : Pertanyaan atau instruksi (prompt) dari pengguna.
+  Process     : ChatGPT mengolah data teks dalam skala besar untuk menjawab pertanyaan.
+  Output      : Jawaban atau penjelasan teks yang dihasilkan AI.
+  Outcome     : Pengguna mendapatkan informasi atau bantuan koding secara instan.
+  Constraints : AI sering tidak memberikan referensi asli dan bisa memberikan informasi salah (halusinasi).
+  Stakeholders: Mahasiswa, Dosen, Peneliti, dan Institusi Pendidikan.
 
 Fenomena → Problem
-  Fenomena yang diamati             : ____________________
-  Gejala (symptom) yang terukur     : ____________________
-  Masalah yang didiagnosis          : ____________________
-  Masalah riset (researchable)      : ____________________
-  Variabel yang terukur             : ____________________
+  Fenomena yang diamati             : Banyak mahasiswa menggunakan ChatGPT untuk mengerjakan tugas kuliah.
+  Gejala (symptom) yang terukur     : Meningkatnya tugas yang isinya serupa namun tidak punya rujukan rujukan ilmiah.
+  Masalah yang didiagnosis          : Kurangnya pemahaman mahasiswa tentang etika akademis dan verifikasi data saat memakai AI.
+  Masalah riset (researchable)      : Sejauh mana efektivitas penggunaan alat deteksi AI dan aturan etika dalam menurunkan tingkat plagiarisme tidak sengaja akibat ChatGPT.
+  Variabel yang terukur             : Skor plagiarisme (persentase) dan tingkat akurasi rujukan yang digunakan mahasiswa.
 
 Problem Quality Check
   [ ] Clarity — Apakah satu orang membaca akan paham?
@@ -93,7 +93,7 @@ Problem Quality Check
   [ ] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
-  ____________________
+Meskipun ChatGPT menawarkan peluang besar dalam meningkatkan efisiensi riset dan pembelajaran koding bagi mahasiswa Teknologi Informasi, penggunaannya tanpa pengawasan etika memicu kekhawatiran serius terhadap integritas akademis. Mahasiswa cenderung menjadi kurang kreatif dan memiliki kemampuan berpikir algoritmik yang rendah jika terlalu bergantung pada jawaban otomatis tanpa verifikasi sumber. Oleh karena itu, diperlukan sebuah kerangka kerja atau pedoman etika yang mampu menyeimbangkan pemanfaatan AI sebagai alat bantu tanpa mengorbankan kualitas intelektual dan kejujuran akademis peneliti muda.
 ```
 
 ---
@@ -102,17 +102,17 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** ________________________________________
+**Topik awal:** Etika Penggunaan ChatGPT dalam Pembelajaran Pemrograman.
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | *AI kini bisa membuat kode program secara otomatis berdasarkan logika teks.* |
+| Observed Issue (Symptom) | *Mahasiswa sering copy-paste tanpa tahu sumber aslinya.* |
+| Diagnosed Problem (Root Cause) | ChatGPT tidak didesain untuk memberikan sumber rujukan yang kredibel secara otomatis |
+| Researchable Problem | Apakah pemberian edukasi etika akademis khusus AI dapat meningkatkan kebiasaan verifikasi sumber pada mahasiswa? |
+| Measurable Variable | Frekuensi pengecekan rujukan (verifikasi) sebelum dan sesudah edukasi |
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
+**Apakah terjebak solution-first thinking?** [ ] Ya / [x] Tidak
 > Jika ya, kembali ke tahap mana? ________________________
 
 ---
@@ -123,12 +123,12 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | *Logika program dalam bahasa manusia (prompt) dan source code yang bermasalah.* |
+| Process | Analisis sintaks dan logika oleh mesin NLP untuk memberikan saran perbaikan. |
+| Output | Teks penjelasan dan blok kode program yang sudah di-debug. |
+| Outcome | Siswa memahami langkah perbaikan koding dan waktu pengerjaan tugas menjadi lebih cepat. |
+| Constraints | AI sering tidak mencantumkan sumber asli dan berisiko memberikan informasi salah. |
+| Stakeholders | Mahasiswa, Pengajar (Guru/Dosen), dan institusi pendidikan. |
 
 **Komponen mana yang paling relevan dengan masalah riset?** _______________
 
@@ -140,17 +140,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | *5* | Masalahnya jelas: penggunaan ChatGPT tanpa etika merusak integritas riset dan kreativitas. |
+| Measurability | 4 | Bisa diukur melalui skor plagiarisme, frekuensi penggunaan AI, dan hasil tes koding mandiri. |
+| Relevance | 5 | Sangat relevan karena AI sedang menjadi tren besar sekaligus tantangan di dunia akademik saat ini. |
+| Testability | 4 | Bisa diuji dengan membandingkan kualitas karya ilmiah antara mahasiswa yang diberi edukasi etika vs yang tidak. |
+| Impact | 5 | Memberikan kontribusi berupa saran strategi bagi instansi pendidikan untuk menghadapi perkembangan AI secara bijak. |
 
-**Skor total:** _____ / 25
+**Skor total:** 23 / 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
-> ___________________________________________________
+> Pemanfaatan ChatGPT dalam riset teknologi informasi memberikan peluang efisiensi yang besar melalui kemampuannya memberikan sudut pandang baru dan bantuan debugging program. Namun, ketergantungan yang tinggi tanpa disertai pemahaman etika akademis menimbulkan risiko plagiarisme dan penurunan kemampuan berpikir algoritmik mahasiswa secara signifikan. Riset ini bertujuan untuk merumuskan pedoman etika penggunaan AI yang adaptif guna memitigasi dampak negatif tersebut, sehingga integritas akademik dan kualitas intelektual mahasiswa tetap terjaga di tengah perkembangan teknologi augmented intelligence.
 
 ---
 
@@ -159,5 +158,4 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Perbedaan fundamentalnya terletak pada tujuan akhir. Saat koding, masalah dianggap selesai ketika bug hilang dan program berjalan (Engineering Focus). Namun dalam riset, masalah tidak selesai hanya dengan "jawaban" dari AI; kita harus membuktikan kebenaran informasi tersebut, mencantumkan sumber yang kredibel, dan memastikan ada pemahaman intelektual yang bertambah (Research Focus) agar terhindar dari plagiarisme. 
