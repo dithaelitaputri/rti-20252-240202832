@@ -91,7 +91,7 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 | Reality → Data | *Mengumpulkan artikel dari Emerald, IEEE Xplore, Frontiers, dll.* | *Sampling Bias: Hanya mengambil artikel dari penerbit tertentu.* |
 | Data → Processing | *Melakukan tinjauan pustaka terhadap artikel terkait ChatGPT di dunia akademis.*|*Cherry-picking: Memilih hanya artikel yang mendukung argumen tertentu.* |
 | Processing → Analysis | *Menganalisis dampak positif dan negatif penggunaan ChatGPT.*| *Confounding Variable: Faktor luar seperti kebijakan institusi yang berbeda-beda.*|
-| Analysis → Inference | *Menyimpulkan peluang dan tantangan ChatGPT di bidang TI.* | * Inference bias: Menggeneralisasi dampak ChatGPT tanpa melihat variasi sub-bidang TI. * |
+| Analysis → Inference | *Menyimpulkan peluang dan tantangan ChatGPT di bidang TI.* | *Inference bias: Menggeneralisasi dampak ChatGPT tanpa melihat variasi sub-bidang TI.* |
 | Inference → Knowledge | *Menghasilkan panduan etika penggunaan AI bagi akademisi.* | *Construct Validity: Metrik "kualitas akademis" mungkin sulit diukur secara objektif.* |
 
 **Distorsi paling besar di tahap:** Reality → Data (Karena kualitas tinjauan sangat bergantung pada variasi sumber data awal)
@@ -124,11 +124,12 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | * 2 * | * 5 * | * 3 * |
-| Jenis data yang dikumpulkan | * Statistik jumlah pengguna ChatGPT.* | * Hasil wawancara, pandangan subjektif.* | *Performa sistem, Pengembangan tool deteksi AI (seperti ZeroGPT). * |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) | *2* | *5* | *3* |
+| Jenis data yang dikumpulkan | *Statistik jumlah pengguna ChatGPT.* | *Hasil wawancara, pandangan subjektif.* | *Performa sistem, Pengembangan tool deteksi AI (seperti ZeroGPT).* |
+| Limitasi paradigma | *Hanya angka, tidak menjelaskan "mengapa" mahasiswa malas.* | *Hasil bisa sangat subjektif tergantung partisipan.* | *Fokus pada alat, bukan pada dampak perilaku manusianya.* |
 
 **Paradigma yang dipilih:** Interpretivis
+
 **Alasan:** 
 Karena fokus utama adalah membangun dan mengevaluasi penggunaan ChatGPT sebagai instrumen/artefak praktis untuk membantu tugas-tugas teknis seperti pemrograman dan perencanaan studi.
 ---
@@ -138,6 +139,4 @@ Karena fokus utama adalah membangun dan mengevaluasi penggunaan ChatGPT sebagai 
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
- 
+> Dulu saya mengira riset hanya soal mencari jawaban yang benar. Sekarang saya paham bahwa proses transformasi data sangat rawan distorsi. Saat membaca paper, saya akan bertanya: "Bagaimana peneliti menjaga etika saat memakai AI?" dan "Apakah sumber referensi yang diberikan AI itu nyata atau hasil halusinasi sistem?"
