@@ -53,25 +53,24 @@ Mata kuliah ini menggunakan pendekatan **Positivist** (fenomena TI bisa diukur o
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : ____________________
-Tanggal          : ____________________
+Nama Peneliti    : Ditha Elita Putri
+Tanggal          : 13 April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: ____________________
-   - Data yang dibutuhkan untuk verifikasi: ____________________
+   - Pertanyaan pertama saya: Dari mana sumber datanya dan apakah jawabannya benar-benar bisa dipercaya atau cuma karangan AI saja?
+   - Data yang dibutuhkan untuk verifikasi: Daftar referensi atau rujukan asli yang digunakan, supaya kita tahu informasinya bukan hasil asal ambil (misalnya melalui tinjauan pustaka atau eksperimen)
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: ____________________
+   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [] Design Science  [ ] Mixed
+   - Alasan: Topik mengenai ChatGPT dalam riset TI pada jurnal ini lebih banyak mengeksplorasi makna, persepsi, serta tantangan etika melalui tinjauan literatur (kualitatif) daripada melakukan uji eksperimen numerik terkontrol (positivis).
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: ____________________
-   - Sumber bias potensial: ____________________
-   - Langkah mitigasi: ____________________
-
+   - Asumsi tersembunyi:Anggapan kalau ChatGPT itu asisten yang selalu benar, padahal dia cuma merangkum data tanpa tahu itu fakta atau hoax.
+   - Sumber bias potensial: Misinformation atau informasi yang berasal dari portal propaganda yang dirangkum oleh AI tanpa rujukan sumber yang jelas.
+   - Langkah mitigasi: Harus rajin cek ulang (cross-check) kebenaran informasi dan pakai aplikasi pendeteksi AI seperti ZeroGPT
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: ____________________
-   - Batasan yang diakui sejak awal: ____________________
+   - Data yang tidak akan dimanipulasi: Sumber rujukan asli dari para ahli dan temuan asli mengenai dampak negatif penggunaan AI (seperti menurunnya kemampuan berpikir algoritmik).
+   - Batasan yang diakui sejak awal: Keterbatasan ChatGPT dalam menyediakan rujukan yang kredibel secara langsung dan adanya potensi tindakan plagiarisme jika alat bantu ini tidak digunakan secara bijak
 ```
 
 ---
@@ -95,7 +94,7 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 | Analysis → Inference | *Menyimpulkan peluang dan tantangan ChatGPT di bidang TI.* | * Inference bias: Menggeneralisasi dampak ChatGPT tanpa melihat variasi sub-bidang TI. * |
 | Inference → Knowledge | *Menghasilkan panduan etika penggunaan AI bagi akademisi.* | *Construct Validity: Metrik "kualitas akademis" mungkin sulit diukur secara objektif.* |
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Reality → Data (Karena kualitas tinjauan sangat bergantung pada variasi sumber data awal)
 
 **Dua distorsi spesifik yang teridentifikasi:**
 1. ChatGPT menyajikan informasi tanpa rujukan jelas, sehingga asal-usul data menjadi kabur (distorsi validitas).
@@ -120,15 +119,16 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** ________________________________________
+**Topik riset:** Peluang dan Tantangan Penggunaan ChatGPT dalam Riset TI
+
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | * 3. Digunakan untuk menguji akurasi jawaban AI.* | *4.Pahami persepsi mahasiswa/dosen terhadap AI. * | *5. ChatGPT digunakan sebagai artefak untuk memecahkan masalah koding. * |
-| Jenis data yang dikumpulkan | * Metrik akurasi, nilai ujian* | * Hasil wawancara, pandangan subjektif.* | *Performa sistem, efisiensi debugging. * |
+| Kesesuaian dengan topik (1–5) | * 2 * | * 5 * | * 3 * |
+| Jenis data yang dikumpulkan | * Statistik jumlah pengguna ChatGPT.* | * Hasil wawancara, pandangan subjektif.* | *Performa sistem, Pengembangan tool deteksi AI (seperti ZeroGPT). * |
 | Limitasi paradigma | | | |
 
-**Paradigma yang dipilih:** _____________________________
+**Paradigma yang dipilih:** Interpretivis
 **Alasan:** 
 Karena fokus utama adalah membangun dan mengevaluasi penggunaan ChatGPT sebagai instrumen/artefak praktis untuk membantu tugas-tugas teknis seperti pemrograman dan perencanaan studi.
 ---
@@ -140,3 +140,4 @@ Karena fokus utama adalah membangun dan mengevaluasi penggunaan ChatGPT sebagai 
 **Jawaban:**
 > ___________________________________________________
 > ___________________________________________________
+ 
