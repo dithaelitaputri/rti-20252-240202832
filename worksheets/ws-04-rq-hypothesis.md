@@ -67,34 +67,34 @@ Jika rantai ini tidak lengkap, RQ belum mature. Bi-directional: RQ yang tidak bi
 ```
 RQ-CONTRIBUTION-HYPOTHESIS
 
-Gap Statement  : ____________________
+Gap Statement  : Kesenjangan antara pengalaman penggunaan (usability) yang dirasakan dengan keputusan untuk melanjutkan penggunaan platform (retensi), serta terbatasnya kajian yang menganalisis pengaruh usability pada level fitur spesifik (live shopping dan product reviews) terhadap retensi dalam konteks social commerce.
 
 Research Question:
-  Tipe         : [ ] Comparison  [ ] Improvement  [ ] Exploratory
-  Formulasi    : ____________________
-  Variabel IV  : ____________________
-  Variabel DV  : ____________________
-  Metrik       : ____________________
-  Dataset      : ____________________
-  Baseline     : ____________________
+  Tipe         : [x] Comparison  [ ] Improvement  [x] Exploratory
+  Formulasi    : Bagaimana pengaruh usability level fitur (live shopping dan product reviews) terhadap retensi pengguna TikTok Shop pada Generasi Z, dan bagaimana pola prediksinya menggunakan Naïve Bayes?
+  Variabel IV  : Usability Fitur Live Shopping dan Usability Fitur Product Reviews.
+  Variabel DV  : Retensi Pengguna
+  Metrik       : Skor System Usability Scale (SUS), Accuracy, Precision, Recall, dan F1-Score.
+  Dataset      : 115 responden Generasi Z pengguna TikTok Shop.
+  Baseline     : Ambang kelayakan SUS (>70) dan performa model klasifikasi (macro-average F1-score).
 
 Quality Check RQ:
-  [ ] Variabel spesifik
-  [ ] Metrik jelas
-  [ ] Baseline ada
-  [ ] Konteks disebutkan
-  [ ] Memerlukan eksperimen (bukan hanya survei literatur)
+  [x] Variabel spesifik
+  [x] Metrik jelas
+  [x] Baseline ada
+  [x] Konteks disebutkan
+  [x] Memerlukan eksperimen (bukan hanya survei literatur)
 
 Contribution Statement:
-  Apa yang baru diketahui : ____________________
-  Jenis kontribusi        : [ ] Improvement  [ ] Comparison  [ ] Novel approach
-  Gap yang diisi          : ____________________
+  Apa yang baru diketahui : Usability pada level fitur ternyata tidak berpengaruh signifikan terhadap retensi pengguna di social commerce, dan pendekatan prediktif (Naïve Bayes) memberikan insight pola perilaku yang tidak terjelaskan oleh model regresi linier.
+  Jenis kontribusi        : [ ] Improvement  [x] Comparison  [x] Novel approach
+  Gap yang diisi          : Mengisi celah keterpisahan antara pendekatan eksplanatori (regresi) dan prediktif (machine learning) dalam analisis retensi pengguna.
 
 Hypothesis Pair:
-  H₀ : ____________________
-  H₁ : ____________________
-  Threshold              : ____________________
-  Justifikasi threshold  : ____________________
+  H₀ : Usability fitur live shopping dan product reviews tidak memiliki pengaruh signifikan terhadap retensi pengguna TikTok Shop.
+  H₁ : Usability fitur live shopping dan product reviews memiliki pengaruh signifikan terhadap retensi pengguna TikTok Shop.
+  Threshold              : Signifikansi p < 0,05 untuk regresi dan akurasi model klasifikasi.  
+  Justifikasi threshold  : Standar umum dalam penelitian kuantitatif untuk menolak $H_0$ dan menguji performa model prediktif.
 ```
 
 ---
@@ -103,24 +103,24 @@ Hypothesis Pair:
 
 Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 
-**Gap dari WS-03:** ____________________________________
+**Gap dari WS-03:** Hubungan antara usability dan retensi yang belum konsisten dan jarangnya analisis pada level fitur spesifik dalam social commerce.
 
 **RQ versi pertama (tulis bebas):**
-> ___________________________________________________
+> "Apakah persepsi usability fitur live shopping dan product reviews berpengaruh terhadap retensi pengguna Generasi Z di TikTok Shop, dan sejauh mana algoritma Naïve Bayes dapat memprediksi pola retensi tersebut?"
 
 **Evaluasi RQ:**
 
 | Komponen | Ada? | Isi |
 |----------|------|-----|
-| Metode spesifik | *Contoh: Ya — CNN vs RF* | |
-| Metrik terukur | | |
-| Baseline | | |
-| Dataset/konteks | | |
+| Metode spesifik | *Ya* | Naïve Bayes dan Regresi Logistik. |
+| Metrik terukur | Ya | Skor SUS, Accuracy, Precision, Recall, F1-Score. |
+| Baseline | Ya | Ambang SUS >70 dan macro-average F1-score |
+| Dataset/konteks | Ya | 115 responden Generasi Z pengguna TikTok Shop. |
 
-**Tipe RQ:** [ ] Comparison / [ ] Improvement / [ ] Exploratory
+**Tipe RQ:** [x] Comparison / [ ] Improvement / [x] Exploratory
 
 **RQ versi revisi (setelah evaluasi):**
-> ___________________________________________________
+> Bagaimana pengaruh usability fitur live shopping dan product reviews terhadap retensi pengguna Generasi Z di TikTok Shop menggunakan metrik SUS, dan seberapa akurat algoritma Naïve Bayes memprediksi retensi tersebut dibandingkan baseline performa klasifikasi?
 
 ---
 
@@ -130,14 +130,14 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | *Contoh: Tidak ada perbedaan signifikan F1-Score antara CNN dan RF pada dataset CIC-MalMem-2022* |
-| H₁ | |
-| Metrik | |
-| Threshold | |
+| H₀ | *Tidak ada pengaruh signifikan antara usability fitur terhadap retensi pengguna TikTok Shop.* |
+| H₁ | Terdapat pengaruh signifikan antara usability fitur terhadap retensi pengguna TikTok Shop. |
+| Metrik | Skor SUS dan Koefisien Regresi Logistik (p-value). |
+| Threshold | p< 0,05> |
 | Justifikasi threshold | |
 
-**Apakah hipotesis ini falsifiable?** [ ] Ya / [ ] Tidak
-> Bagaimana cara membuktikannya salah? ___________________
+**Apakah hipotesis ini falsifiable?** [x] Ya / [ ] Tidak
+> Bagaimana cara membuktikannya salah? Jika hasil olah data statistik menunjukkan nilai signifikansi ($p-value$) lebih besar dari 0,05, maka hipotesis $H_1$ dinyatakan salah (ditolak) dan $H_0$ gagal ditolak.
 
 ---
 
@@ -147,14 +147,14 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | *Contoh: Apakah CNN menghasilkan F1-Score lebih tinggi dari RF...* |
-| Variable (IV) | *Contoh: Jenis algoritma (CNN vs RF)* |
-| Variable (DV) | |
-| Metric | |
-| Data source | |
-| Analysis method | |
+| RQ | *Bagaimana pengaruh usability fitur terhadap retensi pengguna TikTok Shop?* |
+| Variable (IV) | *Skor Usability fitur live shopping dan product reviews.* |
+| Variable (DV) | Status Retensi Pengguna (Kategorik: Ya/Tidak) |
+| Metric | Skor SUS (0-100) dan probabilitas Naïve Bayes. |
+| Data source | Kuesioner primer 115 responden Generasi Z. |
+| Analysis method | Regresi Logistik Biner dan Klasifikasi Naïve Bayes. |
 
-**Apakah rantai lengkap?** [ ] Ya / [ ] Tidak
+**Apakah rantai lengkap?** [x] Ya / [ ] Tidak
 > Jika tidak, tahap mana yang perlu direvisi? ______________
 
 ---
@@ -163,6 +163,6 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 > Ambil satu judul skripsi/paper yang pernah dibaca. Coba ekstrak RQ-nya. Apakah RQ tersebut memenuhi semua komponen (metode, metrik, baseline, konteks)? Jika tidak, apa yang hilang?
 
-**Judul:** _____________________________________________
-**RQ yang diekstrak:** __________________________________
-**Komponen yang hilang:** _______________________________
+**Judul:** Jika hasil olah data statistik menunjukkan nilai signifikansi ($p-value$) lebih besar dari 0,05, maka hipotesis $H_1$ dinyatakan salah (ditolak) dan $H_0$ gagal ditolak.
+**RQ yang diekstrak:** Bagaimana pengaruh usability level fitur terhadap retensi pengguna TikTok Shop pada Generasi Z, dan bagaimana pola prediksinya menggunakan Naïve Bayes?
+**Komponen yang hilang:** Tidak ada yang hilang; RQ ini sudah mencakup subjek (Gen Z), domain (social commerce), metode (Naïve Bayes), dan metrik (SUS & Prediksi) secara eksplisit.
