@@ -66,19 +66,19 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: ____________________
+Research Question: Bagaimana pengaruh usability level fitur (live shopping dan product reviews) terhadap retensi pengguna TikTok Shop pada Generasi Z, dan bagaimana pola prediksinya menggunakan Naïve Bayes?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
-|----------|------|--------|--------|-------|--------|---------------|-------------|
-|          | IV   |        |        |       |        |               |             |
-|          | DV   |        |        |       |        |               |             |
-|          | CV   |        |        |       |        |               |             |
+| Usability Fitur | IV | Kualitas pengalaman pengguna pada fitur spesifik. | Skor SUS per fitur. | Ordinal | Skor (0-100). | Kuesioner SUS (10 pertanyaan) | Standar industri untuk mengukur efektivitas dan kepuasan pengguna. |
+| Retensi Pengguna | DV | Keputusan untuk menggunakan kembali platform | Status Retensi (Kategorik). | Nominal | - | Pertanyaan biner (Ya/Tidak). | Menentukan perilaku keberlanjutan pengguna secara konkret. | 
+| Generasi Z | CV | Karakteristik demografis responden. | Tahun Kelahiran. | Ordinal | Tahun | Filter pada form identitas responden. | Menjaga agar hasil penelitian konsisten pada kelompok umur target. |
+
 
 Alignment Check:
   RQ → Concept → Variable → Metric → Data → Result
-  [ ] Setiap langkah terdokumentasi
-  [ ] Tidak ada "lompatan logis"
-  [ ] Metrik mengukur apa yang dimaksud (construct validity)
+  [x] Setiap langkah terdokumentasi
+  [x] Tidak ada "lompatan logis"
+  [x] Metrik mengukur apa yang dimaksud (construct validity)
 ```
 
 ---
@@ -87,17 +87,15 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
+**RQ:** Bagaimana pengaruh usability fitur terhadap retensi pengguna TikTok Shop?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
-|----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+|Usability|IV|Kemudahan penggunaan fitur.|System Usability Scale (SUS).|Ordinal|Skor.|
+| Retensi | DV | Loyalitas/Penggunaan ulang. | Label Klasifikasi (Ya/Tidak). | Nominal | - |
+| Prediksi | - | Akurasi model. | F1-Score & Accuracy. | Ratio | Persen (%) |
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
-> Jika ya, di mana? ____________________________________
-
+**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [x] Tidak
+> Jika ya, di mana?
 ---
 
 ## Latihan 2 — Evaluasi Metrik
@@ -106,15 +104,15 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| Representative | 5 | SUS sudah divalidasi secara global untuk mengukur usability perangkat lunak. |
+| Sensitive | 4 | Skala 1-5 pada SUS cukup peka untuk menangkap variasi persepsi pengguna. |
+| Feasible | 5 | dikumpulkan melalui kuesioner online (Google Forms) |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
+**Apakah perlu secondary metric?** [x] Ya / [ ] Tidak
+> Jika ya, apa dan mengapa? Perlu metrik performa model (Akurasi/F1-Score) karena selain melihat pengaruh (regresi), penelitian ini juga membangun model prediksi (Naïve Bayes).
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
+> Ceiling effect terjadi jika skor SUS fitur live shopping hampir semuanya menyentuh angka 90-100 (sangat tinggi). Hal ini membuat metrik menjadi tidak sensitif karena kita tidak bisa membedakan mana pengguna yang benar-benar puas dan mana yang sangat puas, sehingga sulit melihat pengaruhnya terhadap retensi karena datanya terlalu homogen di batas atas.
 
 ---
 
@@ -124,10 +122,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| Completeness | *Apakah semua data point terkumpul?* | Ya, 115 responden. | Melakukan cleaning pada data kuesioner yang tidak lengkap. |
+| Consistency | *Apakah ada kontradiksi internal?* | Ada kemungkinan responden mengisi asal. | Menggunakan logic check (misal: skor SUS yang semuanya 5 atau semuanya 1 dihapus). |
+| Validity | *Apakah benar-benar mengukur yang dimaksud?* | Ya, menggunakan instrumen baku. | Uji validitas dan reliabilitas pada kuesioner sebelum disebar luas. |
+| Representativeness | *Apakah sampel mewakili populasi target?* | Ya, khusus Gen Z. | Filter ketat pada awal kuesioner mengenai usia dan pengalaman belanja. |
 
 ---
 
@@ -136,5 +134,4 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Memilih metrik setelah melihat data dianggap curang karena peneliti cenderung hanya akan memilih metrik yang "terlihat bagus" atau mendukung hipotesis mereka secara signifikan. Ini merusak objektivitas sains. Bedanya dengan eksplorasi data yang sah adalah eksplorasi bertujuan untuk mencari insight baru (temuan awal) yang harus diuji lagi, sedangkan confirmatory research (seperti skripsi/jurnal ini) harus menetapkan metrik di awal untuk membuktikan hipotesis secara adil.
