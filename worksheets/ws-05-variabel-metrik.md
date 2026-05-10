@@ -112,7 +112,7 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 > Jika ya, apa dan mengapa? Perlu metrik performa model (Akurasi/F1-Score) karena selain melihat pengaruh (regresi), penelitian ini juga membangun model prediksi (Naïve Bayes).
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> Ceiling effect terjadi jika skor SUS fitur live shopping hampir semuanya menyentuh angka 90-100 (sangat tinggi). Hal ini membuat metrik menjadi tidak sensitif karena kita tidak bisa membedakan mana pengguna yang benar-benar puas dan mana yang sangat puas, sehingga sulit melihat pengaruhnya terhadap retensi karena datanya terlalu homogen di batas atas.
+> Ceiling effect terjadi jika skor SUS fitur live shopping hampir semuanya menyentuh angka 90-100 (sangat tinggi). Hal ini membuat metrik menjadi tidak sensitif karena kita tidak bisa membedakan mana pengguna yang benar-benar puas dan mana yang sangat puas, sehingga sulit melihat pengaruhnya terhadap retensi karena datanya terlalu homogen di batas atas
 
 ---
 
