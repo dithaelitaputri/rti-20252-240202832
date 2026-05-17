@@ -74,8 +74,9 @@ menggunakan Naïve Bayes?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
-| Usability fitur | IV | Kuesioner SUS 10 item | Skor SUS (0–100) per fitur |                          |
-| Retensi Pengguna | DV |  Modul Prediksi Naïve Bayes | Label biner (Ya/Tidak) |
+|-------|------------|----------|----------|
+| Usability fitur | IV | Kuesioner SUS 10 item | Skor SUS (0–100) per fitur |
+| Retensi Pengguna | DV | Modul Prediksi Naïve Bayes | Label biner (Ya/Tidak) |
 | Sampel Responden | CV | Filter Data Input | 115 responden Gen Z |
 
 4 Prinsip Desain:
@@ -98,6 +99,7 @@ Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 **RQ:** Bagaimana pengaruh usability fitur live shopping dan product reviews terhadap retensi pengguna TikTok Shop pada Generasi Z, dan bagaimana pola prediksinya menggunakan Naïve Bayes?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
+| ---------- | ---------- | ---------- | ---------- |
 |Usability fitur live shopping| IV | Kuesioner SUS Bagian A (10 item) | Skor 0–100 dihitung dari jawaban Likert 1–5 |
 | *Usability fitur product reviews* | *IV* | *Kuesioner SUS Bagian B (10 item)* | *Skor 0–100 dihitung dari jawaban Likert 1–5* |
 | Retensi pengguna | DV | Modul label klasifikasi | Output Ya/Tidak berdasarkan 3 indikator perilaku |
