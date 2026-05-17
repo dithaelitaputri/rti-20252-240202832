@@ -71,7 +71,7 @@ Research Question: Bagaimana pengaruh usability level fitur (live shopping dan p
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 | Usability Fitur | IV | Kualitas pengalaman pengguna pada fitur spesifik. | Skor SUS per fitur. | Ordinal | Skor (0-100). | Kuesioner SUS (10 pertanyaan) | Standar industri untuk mengukur efektivitas dan kepuasan pengguna. |
 | Retensi Pengguna | DV | Keputusan untuk menggunakan kembali platform | Status Retensi (Kategorik). | Nominal | - | Pertanyaan biner (Ya/Tidak). | Menentukan perilaku keberlanjutan pengguna secara konkret. | 
-| Generasi Z | CV | Karakteristik demografis responden. | Tahun Kelahiran. | Ordinal | Tahun | Filter pada form identitas responden. | Menjaga agar hasil penelitian konsisten pada kelompok umur target. |
+| Kondisi Pengambilan Data | CV | Keseragaman konteks penelitian | Jumlah responden tetap (115), instrumen SUS baku, platform tunggal (TikTok Shop) | Nominal | - | Purposive sampling dengan kriteria ketat | Memastikan hasil tidak dipengaruhi perbedaan konteks pengukuran |
 
 
 Alignment Check:

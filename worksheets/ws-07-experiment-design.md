@@ -68,36 +68,45 @@ Ancaman validitas harus diidentifikasi **sebelum** eksperimen dan mitigasinya di
 ```
 EXPERIMENT DESIGN
 
-Research Question : ____________________
-Hypothesis        : ____________________
-Tipe Eksperimen   : [ ] Comparison  [ ] Ablation  [ ] Parameter
+Research Question : Bagaimana pengaruh usability fitur live shopping dan 
+product reviews terhadap retensi pengguna TikTok Shop 
+pada Generasi Z, dan bagaimana pola prediksinya 
+menggunakan Naïve Bayes?
+Hypothesis        : 
+H₀: Usability fitur live shopping dan product reviews 
+    tidak berpengaruh signifikan terhadap retensi 
+    pengguna TikTok Shop pada Generasi Z.
+H₁: Usability fitur live shopping dan product reviews 
+    berpengaruh signifikan terhadap retensi pengguna 
+    TikTok Shop pada Generasi Z.
+Tipe Eksperimen   : [x] Comparison  [ ] Ablation  [ ] Parameter
 
 Kondisi Eksperimen:
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control |           |          |             |
-| Treatment |         |          |             |
+| Control |  Regresi Logistik Biner |  Skor SUS | 115 responden Gen Z |
+| Treatment | Model machine learning untuk klasifikasi dan pola prediksi retensi. | Algoritma Naïve Bayes | Dataset 115 responden Gen Z, 10-Fold Cross Validation |
 
 Fairness Checklist:
-  [ ] Dataset identik untuk semua kondisi
-  [ ] Preprocessing setara
-  [ ] Tuning effort setara
-  [ ] Environment identik
-  [ ] Metrik evaluasi sama
+  [x] Dataset identik untuk semua kondisi
+  [x] Preprocessing setara
+  [x] Tuning effort setara
+  [x] Environment identik
+  [x] Metrik evaluasi sama
 
 Threat Analysis:
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal    |                 |          |
-| External    |                 |          |
-| Construct   |                 |          |
-| Conclusion  |                 |          |
+| Internal    |  Responden mengisi kuesioner secara asal-asalan |     Melakukan logic check (cleaning data) dan uji validitas-reliabilitas kuesioner. |
+| External    |  Hasil penelitian hanya mencerminkan perilaku Gen Z di area kampus tertentu. |  Memastikan kriteria sampling (purposive sampling) menyasar Gen Z yang aktif belanja di TikTok Shop secara luas. |
+| Construct   |  Metrik usability (SUS) dianggap tidak cocok untuk platform social commerce. | Menggunakan instrumen SUS baku yang sudah tervalidasi secara global untuk pengujian sistem software/e-commerce. |
+| Conclusion  | Ukuran sampel (115 responden) dianggap terlalu kecil untuk pemodelan Naïve Bayes. | Menggunakan metode evaluasi 10-Fold Cross-Validation untuk meminimalkan bias pembagian data data train-test. |
 
 Statistical Plan:
-  Uji statistik   : ____________________
-  Justifikasi      : ____________________
-  Alpha            : ____________________
-  Effect size min  : ____________________
+  Uji statistik   : Analisis Regresi Logistik Biner & Evaluasi Klasifikasi (Confusion Matrix).
+  Justifikasi      : Regresi untuk menguji signifikansi hubungan sebab-akibat (H₁), Confusion Matrix untuk menguji performa prediksi AI.
+  Alpha            : 0,05 (Tingkat kepercayaan 95%)
+  Effect size min  : Nagelkerke R² untuk regresi logistik dan macro-average F1-score untuk  Naïve Bayes.
 ```
 
 ---
@@ -106,13 +115,13 @@ Statistical Plan:
 
 Susun desain eksperimen berdasarkan RQ, variabel, dan sistem dari WS-04 sampai WS-06.
 
-**RQ:** __________________________________________________
-**Tipe eksperimen:** [ ] Comparison / [ ] Ablation / [ ] Parameter
+**RQ:** Bagaimana pengaruh usability fitur live shopping dan product reviews terhadap retensi pengguna TikTok Shop pada Generasi Z, dan bagaimana pola prediksinya menggunakan Naïve Bayes?
+**Tipe eksperimen:** [x] Comparison / [ ] Ablation / [ ] Parameter
 
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control | *Contoh: RF baseline dari literatur* | *RF* | *Dataset X, 80:20 split, seed 42* |
-| Treatment | | | |
+| Control | *Pengujian statistik regresi untuk dasar penentuan pengaruh.* | *Regresi Logistik Biner* | *Dataset 115 responden, tingkat signifikansi alpha = 0.05* |
+| Treatment | Pengujian akurasi prediksi model klasifikasi data. | Algoritma Naïve Bayes | Dataset 115 responden, skema evaluasi 10-Fold Cross Validation |
 
 ---
 
@@ -122,13 +131,13 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| Dataset identik | *Contoh: ✅ — sama-sama pakai CIC-MalMem-2022* | |
-| Preprocessing setara | | |
-| Tuning effort setara | | |
-| Environment identik | | |
-| Metrik evaluasi sama | | |
+| Dataset identik | * ✅ * | Kedua metode diuji menggunakan dataset yang sama, yaitu data dari 115 responden Gen Z TikTok Shop. |
+| Preprocessing setara | ✅  | Skala input data untuk kedua metode disamakan (skor SUS 0-100 dan label biner). |
+| Tuning effort setara | ✅ | Kedua model dijalankan pada parameter standar tanpa optimasi berlebih di salah satu model. |
+| Environment identik | ✅  | Pemrosesan statistik dan data mining dilakukan menggunakan tools standar (SPSS dan RapidMiner). |
+| Metrik evaluasi sama | ✅  | Keduanya melihat luaran prediksi keputusan retensi (Ya/Tidak). |
 
-**Ada yang tidak fair?** [ ] Ya / [ ] Tidak
+**Ada yang tidak fair?** [ ] Ya / [x] Tidak
 > Jika ya, bagaimana cara memperbaikinya? ________________
 
 ---
@@ -139,14 +148,14 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal | *Contoh: Data leakage antara train-test* | *Contoh: Gunakan stratified split, validasi tidak ada overlap* |
-| External | | |
-| Construct | | |
-| Conclusion | | |
+| Internal | *Responden mengisi asal asalan* | *Logic check saat cleaning data + uji validitas & reliabilitas sebelum analisis utama* |
+| External | Sampel hanya Gen Z tertentu, tidak mewakili seluruh Gen Z Indonesia. | Nyatakan keterbatasan ini secara jujur di bagian limitasi penelitian. |
+| Construct | SUS dianggap tidak cocok untuk social commerce. | SUS sudah tervalidasi global untuk software/e-commerce (Brooke, 1996) |
+| Conclusion | Class imbalance: 101 Ya vs 14 Tidak membuat akurasi menyesatkan. | Gunakan macro-average F1-score sebagai metrik utama, bukan hanya accuracy. |
 
-**Ancaman mana yang paling sulit dimitigasi?** _____________
+**Ancaman mana yang paling sulit dimitigasi?** External Validity
 **Mengapa?**
-> ___________________________________________________
+> Karena penelitian kuantitatif berbasis kuesioner online dengan 115 sampel memiliki keterbatasan geografis dan demografis, sehingga sangat sulit mengklaim bahwa hasil ini mewakili seluruh Generasi Z di Indonesia tanpa melakukan sampling berskala nasional.
 
 ---
 
@@ -155,6 +164,6 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 > Sebuah paper melaporkan "metode kami mengalahkan semua baseline." Apa 3 pertanyaan pertama yang harus diajukan untuk mengevaluasi klaim ini?
 
 **Jawaban:**
-1. ___________________________________________________
-2. ___________________________________________________
-3. ___________________________________________________
+1. Apakah dataset dan preprocessing yang digunakan sama adilnya antara metode baru dan metode baseline?
+2.Apakah metode baseline sudah di-tuning dengan maksimal, atau sengaja dibiarkan memakai parameter default agar terlihat kalah?
+3. Metrik apa yang digunakan untuk mengklaim kemenangan tersebut? Apakah menang di Akurasi tapi sebenarnya kalah di F1-Score karena datanya timpang?
