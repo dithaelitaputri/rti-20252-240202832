@@ -95,12 +95,12 @@ Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 | Prediksi | - | Akurasi model. | F1-Score & Accuracy. | Ratio | Persen (%) |
 
 **Apakah ada lompatan logis dalam rantai?** [ ] Ya / [x] Tidak
-> Jika ya, di mana?
+> Jika ya, di mana? 
 ---
 
 ## Latihan 2 — Evaluasi Metrik
 
-Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
+Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
