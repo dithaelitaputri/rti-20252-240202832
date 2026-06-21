@@ -64,29 +64,28 @@ EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
   CPU     : Minimal Intel Core i5 generasi 8 ke atas 
-            (atau setara)
-  RAM     : Minimal 8 GB (untuk menjalankan SPSS & RapidMiner)
-  GPU     : Tidak diperlukan (analisis statistik, bukan deep learning)
-  Storage : Minimal 10 GB (instalasi SPSS + RapidMiner + dataset)
+  RAM     : Minimal 8 GB 
+  GPU     : Tidak diperlukan 
+  Storage : Minimal 10 GB 
 
 Software:
   OS        : Windows 10/11 (64-bit)
   Runtime   : SPSS Statistics v26 (regresi logistik biner)
               RapidMiner Studio v9.10 (Naïve Bayes + 10-Fold CV)
-  Framework : Google Forms (pengumpulan data kuesioner)
+  Framework : Google Forms, Microsoft Excel v2019+
+
 Dependencies:
 | Library | Version | Sumber | Hash/Checksum |
-|SPSS Statistics|v26 |IBM |Analisis regresi|
-|  RapidMiner        | v9.10   | RapidMiner Inc |  Naïve Bayes + CV  |
+|SPSS Statistics|v26 |IBM |Regresi logistik |
+|  RapidMiner | v9.10   | RapidMiner Inc |  Naïve Bayes + CV  |
 | Microsoft Excel | v2019+ | Microsoft |  Preprocessing data |
 |Google Forms | - | Google | Kuesioner online |
-|SPSS Amos  | v26 | IBM  | Uji validitas &  
+|SPSS Amos  | v26 | IBM  | Uji validitas &  |
 
 Konfigurasi:
   Config file     : Dataset kuesioner
   Random seed     : Tidak berlaku untuk regresi logistik 
-                    (deterministik). Naïve Bayes menggunakan 
-                    seed default RapidMiner
+                    (deterministik). Naïve Bayes menggunakan seed default RapidMiner
   Hyperparameters : 10-Fold Cross Validation, 
                     threshold p < 0,05, ambang SUS ≥ 70
 
