@@ -61,17 +61,17 @@ Problem (Bab 2) → Gap (Bab 3) → RQ & H (Bab 4) → Metrik (Bab 5) → Sistem
 PROPOSAL INTEGRATION CHECKLIST
 
 Koneksi Vertikal (Flow Atas-Bawah):
-  [ ] Problem → Gap: masalah terdokumentasi di literatur
-  [ ] Gap → RQ: pertanyaan menjawab gap spesifik
-  [ ] RQ → Hypothesis: hipotesis memprediksi jawaban
-  [ ] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
-  [ ] Metric → System: komponen sistem menghasilkan/mengukur metrik
-  [ ] System → Experiment: desain eksperimen menggunakan sistem
+  [x] Problem → Gap: masalah terdokumentasi di literatur
+  [x] Gap → RQ: pertanyaan menjawab gap spesifik
+  [x] RQ → Hypothesis: hipotesis memprediksi jawaban
+  [x] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
+  [x] Metric → System: komponen sistem menghasilkan/mengukur metrik
+  [x] System → Experiment: desain eksperimen menggunakan sistem
 
 Koneksi Horizontal (Konsistensi):
-  [ ] Istilah sama di semua bagian
-  [ ] Variabel di RQ = variabel di hipotesis = metrik di desain
-  [ ] Scope tidak berubah dari masalah ke eksperimen
+  [x] Istilah sama di semua bagian
+  [x] Variabel di RQ = variabel di hipotesis = metrik di desain
+  [x] Scope tidak berubah dari masalah ke eksperimen
 
 Rubrik Self-Assessment:
 | Kriteria | 1 (Lemah) | 2 (Cukup) | 3 (Baik) | Skor |
@@ -106,18 +106,18 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 | Koneksi | Status | Bukti |
 |---------|--------|-------|
-| Problem → Gap | *Contoh: ✅ — gap muncul dari 15 paper Bab 3 yang tidak ada yang mengkombinasikan CF + context untuk satisfaction* | |
-| Gap → RQ | *Contoh: ✅ — RQ langsung menanyakan apakah CF+context meningkatkan satisfaction* | |
-| RQ → Hypothesis | *Contoh: ✅ — H₁ memprediksi satisfaction ≥ 70 dengan threshold RMSE ≤ 0.90* | |
-| Hypothesis → Metric | | |
-| Metric → System | | |
-| System → Experiment | | |
+| Problem → Gap | ✅ | Masalah usability marginal-low ditemukan dari jurnal referensi, dan gap muncul karena belum ada studi yang menganalisis usability per fitur secara terpisah. |
+| Gap → RQ | ✅ | RQ langsung menanyakan pengaruh usability pada level fitur dan kemampuan prediksi Naïve Bayes |
+| RQ → Hypothesis | ✅ | H₀ dan H₁ memprediksi ada atau tidaknya pengaruh signifikan usability terhadap retensi, yang merupakan inti dari RQ. |
+| Hypothesis → Metric | ✅ | H₀/H₁ diuji menggunakan p-value (threshold 0,05) untuk regresi, dan macro-average F1-score untuk Naïve Bayes — keduanya mengukur variabel dalam hipotesis secara langsung. |
+| Metric → System | ✅ | Skor SUS dihasilkan oleh kuesioner (komponen IV), label retensi dihasilkan oleh modul klasifikasi (komponen DV), dan semua metrik dihitung otomatis oleh SPSS dan RapidMiner. |
+| System → Experiment | ✅ | Desain eksperimen menggunakan output kuesioner SUS sebagai input Kondisi A (regresi) dan Kondisi B (Naïve Bayes), sehingga sistem benar-benar menjadi instrumen pengujian. |
 
-**Koneksi mana yang paling lemah?** _______________________
+**Koneksi mana yang paling lemah?** Metric → System
 **Bagaimana cara memperkuatnya?**
-> ___________________________________________________
+>Karena penelitian ini berbasis kuesioner dan bukan sistem software yang dibangun sendiri, perlu dijelaskan secara eksplisit bahwa SPSS dan RapidMiner berperan sebagai "komponen sistem" yang menghasilkan metrik — bukan sekadar alat bantu analisis.
 
-**Konsistensi horizontal — apakah istilah dan scope konsisten?** [ ] Ya / [ ] Tidak
+**Konsistensi horizontal — apakah istilah dan scope konsisten?** [x] Ya / [ ] Tidak
 > Jika tidak, di bagian mana terjadi inkonsistensi? _________
 
 ---
@@ -128,14 +128,14 @@ Evaluasi proposal mini menggunakan rubrik.
 
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
-| Koherensi | *Contoh: 2 — koneksi gap→RQ masih lemah karena gap belum cukup narrow* | |
-| Specificity | *Contoh: 3 — metrik (satisfaction 0-100, RMSE) sudah terdefinisi numerik* | |
-| Feasibility | | |
-| Rigor | | |
+| Koherensi | 3 | Alur dari problem → gap → RQ → hipotesis → metrik → sistem → eksperimen sudah terhubung dengan logis dan tidak ada koneksi yang putus. |
+| Specificity | 3 | Semua variabel, metrik, dan metode sudah terdefinisi secara spesifik dan numerik — skor SUS 0–100, threshold p < 0,05, 115 responden, 10-Fold CV. |
+| Feasibility | 2 | Penelitian berbasis kuesioner dan tools yang tersedia (SPSS dan RapidMiner), namun ketidakseimbangan kelas data (101 vs 14) menjadi tantangan nyata yang perlu diantisipasi. |
+| Rigor | 3 | Ancaman validitas sudah diidentifikasi sejak awal (internal, external, construct, conclusion) beserta mitigasinya, dan metrik evaluasi dipilih berdasarkan karakteristik data. |
 
-**Skor total:** _____ / 12
+**Skor total:** 11 / 12
 
-**Apakah proposal siap untuk fase eksekusi?** [ ] Ya / [ ] Belum
+**Apakah proposal siap untuk fase eksekusi?** [x] Ya / [ ] Belum
 > Jika belum, apa yang perlu diperbaiki? __________________
 
 ---
@@ -144,8 +144,7 @@ Evaluasi proposal mini menggunakan rubrik.
 
 > Dari seluruh proses WS-01 sampai WS-08, bagian mana yang paling mudah dan paling sulit? Mengapa? Apa yang akan dilakukan berbeda jika mengulang dari awal?
 
-**Bagian termudah:** ____________________________________
-**Bagian tersulit:** ____________________________________
+**Bagian termudah:** Latihan 1 - Karena semua komponen sudah dikerjakan di WS sebelumnya, yang perlu dilakukan hanya merangkum dan memastikan semuanya terhubung. Prosesnya seperti menyusun puzzle yang potongannya sudah tersedia.
+**Bagian tersulit:** Latihan 2 — Integration Checklist, Memverifikasi bahwa setiap koneksi benar-benar terhubung secara logis  bukan hanya terlihat nyambung  membutuhkan pemahaman mendalam tentang seluruh alur penelitian dari awal sampai akhir.
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
-> ___________________________________________________
+> Jika mengulang dari awal, topik penelitian akan ditetapkan lebih awal sejak WS-01 agar semua latihan dari awal sampai akhir langsung mengacu pada satu topik yang sama. Dengan demikian tidak perlu melakukan penyesuaian saat topik berganti di WS-04, dan seluruh alur penelitian bisa lebih konsisten sejak hari pertama.
