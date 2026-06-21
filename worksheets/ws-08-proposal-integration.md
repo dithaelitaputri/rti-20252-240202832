@@ -61,12 +61,23 @@ Problem (Bab 2) → Gap (Bab 3) → RQ & H (Bab 4) → Metrik (Bab 5) → Sistem
 PROPOSAL INTEGRATION CHECKLIST
 
 Koneksi Vertikal (Flow Atas-Bawah):
-  [x] Problem → Gap: masalah terdokumentasi di literatur
-  [x] Gap → RQ: pertanyaan menjawab gap spesifik
-  [x] RQ → Hypothesis: hipotesis memprediksi jawaban
+  [x] Problem → Gap: Usability fitur TikTok Shop 
+      terdokumentasi marginal-low (SUS 52 & 53) dari 
+      jurnal referensi, dan gap muncul dari literatur 
+      yang belum menganalisis usability per fitur
+  [x] Gap → RQ: langsung menanyakan pengaruh 
+      usability level fitur dan kemampuan prediksi 
+      Naïve Bayes terhadap retensi
+  [x] RQ → Hypothesis: H₀ dan H₁ memprediksi 
+      ada / tidaknya pengaruh signifikan usability 
+      terhadap retensi, terhubung langsung ke RQ
   [x] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
-  [x] Metric → System: komponen sistem menghasilkan/mengukur metrik
-  [x] System → Experiment: desain eksperimen menggunakan sistem
+  [x] Metric → System: Skor SUS dari kuesioner 
+      menghasilkan IV, label retensi menghasilkan DV, 
+      SPSS dan RapidMiner menghitung metrik
+  [x] System → Experiment: Kuesioner SUS menjadi 
+      instrumen pengujian Kondisi A (regresi) 
+      dan Kondisi B (Naïve Bayes)
 
 Koneksi Horizontal (Konsistensi):
   [x] Istilah sama di semua bagian
@@ -76,10 +87,10 @@ Koneksi Horizontal (Konsistensi):
 Rubrik Self-Assessment:
 | Kriteria | 1 (Lemah) | 2 (Cukup) | 3 (Baik) | Skor |
 |----------|-----------|-----------|----------|------|
-| Koherensi |          |           |          |      |
-| Specificity |        |           |          |      |
-| Feasibility |        |           |          |      |
-| Rigor     |          |           |          |      |
+| Koherensi |  Koneksi antar bagian terputus atau tidak logis  |  Sebagian besar koneksi ada tapi ada yang lemah | Semua koneksi dari problem sampai eksperimen terhubung logis dan bisa ditelusuri |  3  |
+| Specificity | Variabel dan metrik masih abstrak  | Sebagian variabel terdefinisi tapi belum semua numerik | Semua variabel, metrik, dan metode terdefinisi numerik dan spesifik |  3 |
+| Feasibility |Penelitian sulit dijalankan dengan sumber daya yang ada | Bisa dijalankan tapi ada tantangan yang belum diantisipasi |  Penelitian bisa dijalankan dengan tools yang tersedia, tantangan sudah diidentifikasi|  2 |
+| Rigor     |  Hipotesis tidak testable, ancaman validitas tidak diidentifikasi | Hipotesis testable tapi ancaman validitas belum semua dimitigasi | Hipotesis testable dan terhubung ke RQ, semua ancaman validitas diidentifikasi beserta mitigasinya |  3 |
 ```
 
 ---
@@ -90,13 +101,13 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 
 | Komponen | Sumber | Isi (1-2 kalimat) |
 |----------|--------|-------------------|
-| Problem Statement | WS-02 | *Contoh: Sistem rekomendasi memiliki akurasi tinggi (RMSE 0.87) tetapi satisfaction score rendah (45/100). Gap antara metrik teknis dan kepuasan pengguna belum diteliti.* |
-| Gap | WS-03 | *Contoh: Tidak ada studi yang mengintegrasikan collaborative filtering dengan user-context signals untuk meningkatkan satisfaction.* |
-| RQ | WS-04 | *Contoh: Apakah penambahan context-aware signals pada collaborative filtering meningkatkan satisfaction score tanpa menurunkan RMSE?* |
-| Hipotesis | WS-04 | *Contoh: H₁: Sistem CF+context menghasilkan satisfaction ≥ 70/100 dengan RMSE ≤ 0.90 dibanding baseline CF murni.* |
-| Variabel & Metrik | WS-05 | *Contoh: IV = jenis sistem (CF vs CF+context); DV = satisfaction score (skala 0-100) + RMSE (regresi).* |
-| Sistem | WS-06 | |
-| Desain Eksperimen | WS-07 | |
+| Problem Statement | WS-02 | Usability fitur live shopping dan product reviews TikTok Shop berada di kategori marginal-low (skor SUS 52 dan 53), sehingga pengguna Generasi Z berpotensi tidak bertahan menggunakan platform karena kualitas pengalaman fitur yang belum memadai. |
+| Gap | WS-03 | Belum ada studi yang menganalisis usability pada level fitur live shopping dan product reviews secara terpisah, dan belum ada yang menggabungkan pendekatan eksplanatori dan prediktif secara komplementer dalam analisis retensi pengguna TikTok Shop. |
+| RQ | WS-04 | Bagaimana pengaruh usability fitur live shopping dan product reviews terhadap retensi pengguna TikTok Shop pada Generasi Z, dan seberapa akurat algoritma Naïve Bayes memprediksi pola retensi tersebut dibandingkan baseline regresi logistik? |
+| Hipotesis | WS-04 | H₀: Skor SUS fitur live shopping dan product reviews tidak berpengaruh signifikan terhadap label retensi pengguna TikTok Shop Generasi Z (p ≥ 0,05). H₁: Skor SUS fitur live shopping dan product reviews berpengaruh signifikan terhadap label retensi pengguna TikTok Shop Generasi Z (p < 0,05). |
+| Variabel & Metrik | WS-05 | IV = skor SUS fitur live shopping dan product reviews (skala ratio 0–100); DV = label retensi pengguna (nominal: Ya/Tidak); CV = dataset 115 responden yang sama, instrumen SUS baku Brooke (1996), threshold p < 0,05; Metrik = p-value, Nagelkerke R², accuracy, macro-average F1-score. |
+| Sistem | WS-06 | Kondisi A (baseline): kuesioner SUS → skor IV → regresi logistik biner di SPSS → output p-value dan koefisien. Kondisi B (intervention): kuesioner SUS → skor IV → Naïve Bayes di RapidMiner dengan 10-Fold CV → output confusion matrix dan F1-score. |
+| Desain Eksperimen | WS-07 | Comparison study: Kondisi A = regresi logistik biner sebagai pendekatan eksplanatori standar; Kondisi B = Naïve Bayes sebagai pendekatan prediktif. Keduanya menggunakan dataset identik dari 115 responden Gen Z agar perbandingan fair. |
 
 ---
 
@@ -115,7 +126,7 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 **Koneksi mana yang paling lemah?** Metric → System
 **Bagaimana cara memperkuatnya?**
->Karena penelitian ini berbasis kuesioner dan bukan sistem software yang dibangun sendiri, perlu dijelaskan secara eksplisit bahwa SPSS dan RapidMiner berperan sebagai "komponen sistem" yang menghasilkan metrik — bukan sekadar alat bantu analisis.
+>Karena penelitian ini berbasis kuesioner dan bukan sistem software yang dibangun sendiri, perlu dijelaskan secara eksplisit bahwa SPSS dan RapidMiner berperan sebagai "komponen sistem" yang menghasilkan metrik  bukan sekadar alat bantu analisis.
 
 **Konsistensi horizontal — apakah istilah dan scope konsisten?** [x] Ya / [ ] Tidak
 > Jika tidak, di bagian mana terjadi inkonsistensi? _________
