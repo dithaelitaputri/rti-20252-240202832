@@ -63,32 +63,38 @@ Capai **repeatability** dulu, baru **reproducibility**.
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : Minimal Intel Core i5 generasi 8 ke atas 
+            (atau setara)
+  RAM     : Minimal 8 GB (untuk menjalankan SPSS & RapidMiner)
+  GPU     : Tidak diperlukan (analisis statistik, bukan deep learning)
+  Storage : Minimal 10 GB (instalasi SPSS + RapidMiner + dataset)
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
-
+  OS        : Windows 10/11 (64-bit)
+  Runtime   : SPSS Statistics v26 (regresi logistik biner)
+              RapidMiner Studio v9.10 (Naïve Bayes + 10-Fold CV)
+  Framework : Google Forms (pengumpulan data kuesioner)
 Dependencies:
 | Library | Version | Sumber | Hash/Checksum |
-|---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+|SPSS Statistics|v26 |IBM |Analisis regresi|
+|  RapidMiner        | v9.10   | RapidMiner Inc |  Naïve Bayes + CV  |
+| Microsoft Excel | v2019+ | Microsoft |  Preprocessing data |
+|Google Forms | - | Google | Kuesioner online |
+|SPSS Amos  | v26 | IBM  | Uji validitas &  
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : Dataset kuesioner
+  Random seed     : Tidak berlaku untuk regresi logistik 
+                    (deterministik). Naïve Bayes menggunakan 
+                    seed default RapidMiner
+  Hyperparameters : 10-Fold Cross Validation, 
+                    threshold p < 0,05, ambang SUS ≥ 70
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [x] Dependency terdokumentasi (requirements.txt / lock file)
+  [x] Seed ditetapkan di semua level (Python, NumPy, framework)
+  [x] Config di version control
+  [x] README instruksi reproduksi lengkap
 ```
 
 ---
@@ -99,23 +105,23 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 | Komponen | Spesifikasi |
 |----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| CPU | Minimal Intel Core i5 generasi 8 ke atas atau setara |
+| RAM | Minimal 8 GB |
+| GPU | Tidak diperlukan — analisis berbasis statistik dan probabilistik |
+| OS | Windows 10/11 64-bit |
+| Runtime | SPSS Statistics v26 untuk regresi logistik; RapidMiner Studio v9.10 untuk Naïve Bayes |
+| Framework | Google Forms untuk pengumpulan data; Microsoft Excel untuk preprocessing |
+| Random Seed | Tidak berlaku untuk regresi logistik. Naïve Bayes menggunakan seed default RapidMiner dengan 10-Fold CV |
 
 **Dependencies (minimal 5):**
 
 | Library | Version | Alasan Dibutuhkan |
 |---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+| SPSS Statistics | v26 | Menjalankan regresi logistik biner dan uji signifikansi p-value |
+| RapidMiner Studio | v9.10 | Membangun model Naïve Bayes dan evaluasi 10-Fold Cross Validation |
+| Microsoft Excel | v2019+ | Preprocessing data — cleaning, pengkodean variabel, format dataset |
+| Google Forms| - | Pengumpulan data kuesioner SUS dari 115 responden secara online |
+| SPSS Amos | v26 | Uji validitas Pearson dan reliabilitas Cronbach's Alpha sebelum analisis utama |
 
 ---
 
@@ -125,18 +131,18 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 
 | Run | Seed | Metrik Utama | Hasil Sama? |
 |-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| 1 | Default RapidMiner | Macro-average F1-score | — |
+| 2 | Default RapidMiner | Macro-average F1-score | [x] Ya / [ ] Tidak |
+| 3 | Default RapidMiner | Macro-average F1-score | [x] Ya / [ ] Tidak |
 
 **Jika hasil berbeda, kemungkinan penyebab:**
-> ___________________________________________________
+> Jika hasil berbeda antar run, kemungkinan penyebabnya adalah pengacakan partisi data pada 10-Fold Cross Validation yang tidak dikunci dengan seed tetap, atau ada perubahan urutan baris pada file dataset saat dibuka ulang di Excel sebelum dimasukkan ke RapidMiner.
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [✅] Random seed di-set di semua level
+- [✅] Tidak ada background process yang mengganggu
+- [✅] Cache dibersihkan antar-run
+- [✅] Config file yang sama untuk semua run
 
 ---
 
@@ -145,22 +151,50 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
+# Judul Eksperimen: Analisis Usability Fitur Live Shopping 
+  dan Product Reviews terhadap Retensi Pengguna TikTok Shop pada Generasi Z Menggunakan Naïve Bayes
 
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
+>  OS        : Windows 10/11 64-bit
+  Tools     : SPSS Statistics v26, RapidMiner Studio v9.10,
+              Microsoft Excel v2019+
+  Hardware  : Minimal Intel Core i5, RAM 8 GB
+  GPU       : Tidak diperlukan
 
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
+> 1. Install SPSS Statistics v26 dari IBM
+  2. Install RapidMiner Studio v9.10 dari rapidminer.com
+  3. Install Microsoft Excel v2019 atau lebih baru
+  4. Tidak diperlukan instalasi library tambahan
 
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
+> Sumber  : Kuesioner online via Google Forms
+  Format  : File .xlsx (Microsoft Excel)
+  Ukuran  : 115 responden, 23 indikator pertanyaan SUS
+  Isi     : Skor SUS fitur live shopping (10 item), 
+            skor SUS fitur product reviews (10 item), 
+            dan label retensi pengguna 
 
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+> Langkah 1 — Buka file dataset .xlsx di Microsoft Excel,
+              lakukan cleaning data dan hitung skor SUS 
+              per fitur menggunakan rumus baku Brooke (1996)
+  Langkah 2 — Import dataset ke SPSS, jalankan analisis 
+              regresi logistik biner dengan skor SUS sebagai 
+              IV dan label retensi sebagai DV
+  Langkah 3 — Import dataset ke RapidMiner, bangun model 
+              Naïve Bayes dengan 10-Fold Cross Validation, 
+              jalankan dan catat hasilnya
+
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+>  File config  : Dataset kuesioner (data_tiktokshop.xlsx)
+  Parameter    : 
+    - Threshold signifikansi  : p < 0,05
+    - Ambang kelayakan SUS    : ≥ 70
+    - Fold CV                 : 10-Fold Cross Validation
+    - Metrik utama            : Macro-average F1-score
+
 
 ## 6. Expected Output
 > (Contoh output yang diharapkan + format)
@@ -172,6 +206,6 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:** [✅] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+> pertama, file dataset asli yang sudah di-anonymize perlu dibagikan agar peneliti lain bisa menggunakan data yang sama. Kedua, langkah preprocessing secara lebih detail perlu didokumentasikan, misalnya bagaimana cara menangani responden yang mengisi tidak konsisten. Ketiga, versi exact RapidMiner dan pengaturan parameter Naïve Bayes perlu dicatat lebih spesifik agar hasil bisa direplikasi di environment yang berbeda.
