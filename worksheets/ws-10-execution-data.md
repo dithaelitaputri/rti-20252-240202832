@@ -70,22 +70,25 @@ EXECUTION PLAN
 
 | Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
 |-------|----------|------|-----------|--------|-------|-------------|
-| 1     |          |      |           |        |       |             |
-| 2     |          |      |           |        |       |             |
-| 3     |          |      |           |        |       |             |
-| ...   |          |      |           |        |       |             |
+| Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
+|-------|----------|------|-----------|--------|-------|-------------|
+| 1     | Analisis Eksplanatori Kausalitas (SPSS) | N/A (Deterministik) | Regresi Logistik Biner, alpha=0.05 | Completed | 00:01:15 | output_regresi_kausalitas.spv |
+| 2     | Klasifikasi Prediktif Lapisan 1 (RapidMiner) | 42 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:45 | model_nb_seed42.csv |
+| 3     | Klasifikasi Prediktif Lapisan 2 (RapidMiner) | 123 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:42 | model_nb_seed123.csv |
+| 4     | Klasifikasi Prediktif Lapisan 3 (RapidMiner) | 999 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:48 | model_nb_seed999.csv |
+| 5     | Klasifikasi Prediktif Lapisan 4 (RapidMiner) | 2026 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:46 | model_nb_seed2026.csv |
 
-Jumlah runs per skenario : ____
-Total runs               : ____
+Jumlah runs per skenario :1 run untuk SPSS, 4 run untuk RapidMiner
+Total runs               : 5 Run
 
 DATA LOG (per run):
-  Run ID    : ____________________
-  Timestamp : ____________________
-  Skenario  : ____________________
-  Input     : ____________________
-  Output    : ____________________
-  Anomali   : ____________________
-  Catatan   : ____________________
+  Run ID    : RUN-TTSHOP-002
+  Timestamp : 2026-05-18T16:20:45WIB
+  Skenario  : Klasifikasi Prediktif Lapisan 1 (RapidMiner - Naïve Bayes)
+  Input     : File data_tiktokshop_clean.xlsx (N=115, IV: Skor SUS Live Shopping & Product Reviews)
+  Output    : Accuracy: 85.22%, Macro-average F1-score: 0.78, Precision: 84.10%, Recall: 86.40%
+  Anomali   : Tidak ditemukan anomali sistem (Execution Success)
+  Catatan   : Evaluasi performa menggunakan skema 10-Fold Cross Validation dengan Local Seed dikunci pada angka 42. Hasil Macro-average F1-score stabil dan mampu mengompensasi class imbalance (101 vs 14).
 ```
 
 ---
@@ -96,15 +99,15 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *1* | *Contoh: BERT-base, DS-1* | *42* | *lr=2e-5, epoch=10* | *Planned* |
-| *2* | *BERT-base, DS-1* | *123* | *lr=2e-5, epoch=10* | *Planned* |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+|  1  |Analisis Kausalitas Eksplanatori (SPSS)|N/A (Deterministik) |Regresi Logistik Biner alpha=0. |Completed|
+|  2  |Klasifikasi Prediktif (RapidMiner) - Run 1|  42 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
+|  3  |Klasifikasi Prediktif (RapidMiner) - Run 2|  123 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
+|  4  |Klasifikasi Prediktif (RapidMiner) - Run 3|  999 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
+|  5  |Klasifikasi Prediktif (RapidMiner) - Run 4|  2026 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
 
-**Total skenario:** ____
-**Run per skenario:** ____
-**Total run keseluruhan:** ____
+**Total skenario:** 2 Skenario Utama (1 Eksplanatori & 1 Prediktif)
+**Run per skenario:** 1 run untuk SPSS, 4 run dengan variasi seed berbeda untuk RapidMiner
+**Total run keseluruhan:** 5 Run
 
 ---
 
@@ -115,25 +118,26 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Identitas:**
 | Field | Contoh |
 |-------|--------|
-| Run ID | *run-001* |
-| Timestamp | *2025-03-15T10:30:00* |
-| | |
+| Run ID | RUN-TTShop-001|
+| Timestamp | 2026-05-18T16:15:00 |
+| Skenario ID | SKN-02-NaïveBayes  |
 
 **Konfigurasi:**
 | Field | Contoh |
 |-------|--------|
-| Seed | *42* |
-| Code version | *commit abc1234* |
-| | |
+| Seed |42 / 123 / 999 / 2026 |
+| Tool Version | RapidMiner Studio v9.10 / IBM SPSS v26 |
+| Input Dataset | data_tiktokshop_clean.xlsx (N=115) |
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
 |--------|----------|-------------|
-| *Contoh: Accuracy* | *float* | *0.0 – 1.0* |
-| | | |
-| | | |
+| p-value Fitur Live Shopping (X1) | float | 00.0 – 1.00 |
+| p-value Fitur Product Reviews (X2)| float |  00.0 – 1.00|
+|Accuracy |float |0.0% – 100.0%|
+|Macro-average F1-score |float |0.00 – 1.00|
 
-**Format output:** [ ] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [x] CSV / [x] JSON / [ ] Database / [ ] Lainnya: ____
 
 ---
 
@@ -143,10 +147,10 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | *Contoh: OOM pada batch_size=64* | *Contoh: Dokumentasi, re-run batch_size=32, catat perubahan* |
-| Hasil ekstrem | | |
-| Waktu eksekusi anomali | | |
-| Inkonsistensi dengan run lain | | |
+| Run gagal (crash) | RapidMiner freeze atau Error Memory Out saat membaca dataset. | Dokumentasikan sisa memori RAM bebas, bersihkan cache aplikasi, pastikan tipe data kolom label sudah diset ke binominal, lalu jalankan ulang (re-run). |
+| Hasil ekstrem | Nilai akurasi model Naïve Bayes melonjak mendadak hingga 100% (overfitting). | Selidiki keterkaitan variabel. Periksa apakah kolom label target (Retensi) tidak sengaja ikut masuk menjadi variabel fitur input (X) |
+| Waktu eksekusi anomali | Kalkulasi proses 10-Fold CV berjalan tidak wajar (> 5 menit). | Investigasi beban CPU pada Windows task manager, matikan aplikasi latar belakang yang mengganggu jalannya memori, lalu ulangi eksekusi. |
+| Inkonsistensi dengan run lain | Nilai Macro-average F1-score turun drastis secara acak pada salah satu variasi nilai seed. | Periksa sebaran partisi data pada lipatan (fold) tersebut. Jangan hapus hasil run tersebut, melainkan catat dan analisis sebagai efek dari ketidakseimbangan data (class imbalance 101 vs 14).  |
 
 **Prinsip:** Detect → Investigate → Document → Decide
 
@@ -157,6 +161,6 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 > Pernahkah Anda melaporkan hasil riset/tugas dari single run? Apa risikonya? Bagaimana multiple run mengubah kepercayaan terhadap hasil?
 
 **Pengalaman sebelumnya:**
-> ___________________________________________________
+> Ya, pada tugas-tugas kuliah pemrograman atau basis data sebelumnya, saya sering kali melaporkan performa sistem atau akurasi hanya dari satu kali pengujian (single run). Risikonya adalah angka tersebut bisa jadi merupakan faktor kebetulan (keberuntungan acak dari pemisahan dataset) sehingga tidak mewakili kestabilan aslinya saat diuji ulang dengan kondisi data berbeda.
 **Yang akan dilakukan berbeda:**
 > ___________________________________________________
