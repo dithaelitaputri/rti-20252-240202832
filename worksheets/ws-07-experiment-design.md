@@ -120,8 +120,8 @@ Susun desain eksperimen berdasarkan RQ, variabel, dan sistem dari WS-04 sampai W
 
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control | *Pengujian statistik regresi untuk dasar penentuan pengaruh.* | *Regresi Logistik Biner* | *Dataset 115 responden, tingkat signifikansi alpha = 0.05* |
-| Treatment | Pengujian akurasi prediksi model klasifikasi data. | Algoritma Naïve Bayes | Dataset 115 responden, skema evaluasi 10-Fold Cross Validation |
+| Control | Pengujian statistik regresi untuk dasar penentuan pengaruh. | Regresi Logistik Biner | Dataset 115 responden Gen Z, alpha = 0,05, instrumen SUS baku |
+| Treatment | Pemodelan klasifikasi untuk memprediksi pola retensi pengguna | Algoritma Naïve Bayes | Dataset 115 responden, skema evaluasi 10-Fold Cross Validation |
 
 ---
 
@@ -131,7 +131,7 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| Dataset identik | * ✅ * | Kedua metode diuji menggunakan dataset yang sama, yaitu data dari 115 responden Gen Z TikTok Shop. |
+| Dataset identik |  ✅  | Kedua metode diuji menggunakan dataset yang sama, yaitu data dari 115 responden Gen Z TikTok Shop. |
 | Preprocessing setara | ✅  | Skala input data untuk kedua metode disamakan (skor SUS 0-100 dan label biner). |
 | Tuning effort setara | ✅ | Kedua model dijalankan pada parameter standar tanpa optimasi berlebih di salah satu model. |
 | Environment identik | ✅  | Pemrosesan statistik dan data mining dilakukan menggunakan tools standar (SPSS dan RapidMiner). |

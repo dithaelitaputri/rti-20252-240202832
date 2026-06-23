@@ -135,7 +135,7 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 | 3 | Default RapidMiner | Macro-average F1-score | [x] Ya / [ ] Tidak |
 
 **Jika hasil berbeda, kemungkinan penyebab:**
-> Jika hasil berbeda antar run, kemungkinan penyebabnya adalah pengacakan partisi data pada 10-Fold Cross Validation yang tidak dikunci dengan seed tetap, atau ada perubahan urutan baris pada file dataset saat dibuka ulang di Excel sebelum dimasukkan ke RapidMiner.
+> Pengacakan partisi data pada operator X-Validation di RapidMiner tidak dikunci menggunakan Local Seed (masih menggunakan sistem acak dinamis), atau adanya perubahan urutan baris data pada file excel sebelum di-import..
 
 **Checklist kontrol yang sudah diterapkan:**
 - [✅] Random seed di-set di semua level
@@ -196,7 +196,9 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
+> 1. File Output SPSS (*.spv): Menampilkan tabel "Variables in the Equation" dengan nilai Sig. (p-value) < 0,05 untuk uji kausalitas, serta nilai Nagelkerke R Square.
+2. Performance Vector RapidMiner: Menampilkan Confusion Matrix dengan format:
+   - Accuracy: ~85%
 ```
 
 ---
@@ -207,4 +209,6 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 **Level saat ini:** [✅] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> pertama, file dataset asli yang sudah di-anonymize perlu dibagikan agar peneliti lain bisa menggunakan data yang sama. Kedua, langkah preprocessing secara lebih detail perlu didokumentasikan, misalnya bagaimana cara menangani responden yang mengisi tidak konsisten. Ketiga, versi exact RapidMiner dan pengaturan parameter Naïve Bayes perlu dicatat lebih spesifik agar hasil bisa direplikasi di environment yang berbeda.
+> 1. File dataset mentah yang telah disamarkan (.xlsx) belum di-upload ke repository umum.
+> 2. Petunjuk filtering data untuk mengeliminasi 115 responden yang tidak konsisten belum dituliskan secara langkah-per-langkah.
+> 3. File ekspor proses workflow RapidMiner (.rmp) belum dilampirkan agar orang lain tinggal melakukan klik run secara instan.
