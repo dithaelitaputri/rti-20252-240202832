@@ -72,23 +72,24 @@ EXECUTION PLAN
 |-------|----------|------|-----------|--------|-------|-------------|
 | Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
 |-------|----------|------|-----------|--------|-------|-------------|
-| 1     | Analisis Eksplanatori Kausalitas (SPSS) | N/A (Deterministik) | Regresi Logistik Biner, alpha=0.05 | Completed | 00:01:15 | output_regresi_kausalitas.spv |
-| 2     | Klasifikasi Prediktif Lapisan 1 (RapidMiner) | 42 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:45 | model_nb_seed42.csv |
-| 3     | Klasifikasi Prediktif Lapisan 2 (RapidMiner) | 123 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:42 | model_nb_seed123.csv |
-| 4     | Klasifikasi Prediktif Lapisan 3 (RapidMiner) | 999 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:48 | model_nb_seed999.csv |
-| 5     | Klasifikasi Prediktif Lapisan 4 (RapidMiner) | 2026 | Naïve Bayes, 10-Fold Cross Validation | Completed | 00:00:46 | model_nb_seed2026.csv |
+| 1     |Analisis Kausalitas Eksplanatori (Python) | 42 | Regresi Logistik Biner, alpha = 0.05 | Completed |
+| 2     | Klasifikasi Prediktif (RapidMiner) - Run 1	| 42 |	Naïve Bayes, 10-Fold Cross Validation |	Completed |
+| 3     | Klasifikasi Prediktif (RapidMiner) - Run 2 |	123 |	Naïve Bayes, 10-Fold Cross Validation	| Completed |
+| 4     |Klasifikasi Prediktif (RapidMiner) - Run 3	| 999 |	Naïve Bayes, 10-Fold Cross Validation |	Completed |
+| 5     | Klasifikasi Prediktif (RapidMiner) - Run 4  |	2026	 | Naïve Bayes, 10-Fold Cross Validation  |	Completed |
 
-Jumlah runs per skenario :1 run untuk SPSS, 4 run untuk RapidMiner
+Jumlah runs per skenario :1 run untuk analisis statistik Python, 4 run dengan variasi seed berbeda untuk RapidMiner
 Total runs               : 5 Run
 
 DATA LOG (per run):
   Run ID    : RUN-TTSHOP-002
   Timestamp : 2026-05-18T16:20:45WIB
   Skenario  : Klasifikasi Prediktif Lapisan 1 (RapidMiner - Naïve Bayes)
-  Input     : File data_tiktokshop_clean.xlsx (N=115, IV: Skor SUS Live Shopping & Product Reviews)
-  Output    : Accuracy: 85.22%, Macro-average F1-score: 0.78, Precision: 84.10%, Recall: 86.40%
-  Anomali   : Tidak ditemukan anomali sistem (Execution Success)
-  Catatan   : Evaluasi performa menggunakan skema 10-Fold Cross Validation dengan Local Seed dikunci pada angka 42. Hasil Macro-average F1-score stabil dan mampu mengompensasi class imbalance (101 vs 14).
+  Input     : File data_tiktokshop_clean.xlsx (N=100, IV: Skor SUS Live Shopping & Product Reviews)
+  Output    : Accuracy: 88.00%, Macro-average F1-score: 0.47, Precision: 88.00%, Recall: 100.00%
+  Anomali   : Ditemukan 15 data responden tidak lolos kriteria screening awal.
+  Catatan   : Evaluasi performa menggunakan skema 10-Fold Cross Validation dengan Local Seed dikunci pada angka 42. Distribusi kelas target Y bernilai Ya = 88 dan Tidak = 12 (terjadi class imbalance alami).
+  
 ```
 
 ---
@@ -99,14 +100,14 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-|  1  |Analisis Kausalitas Eksplanatori (SPSS)|N/A (Deterministik) |Regresi Logistik Biner alpha=0. |Completed|
-|  2  |Klasifikasi Prediktif (RapidMiner) - Run 1|  42 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
-|  3  |Klasifikasi Prediktif (RapidMiner) - Run 2|  123 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
-|  4  |Klasifikasi Prediktif (RapidMiner) - Run 3|  999 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
-|  5  |Klasifikasi Prediktif (RapidMiner) - Run 4|  2026 |Naïve Bayes, 10-Fold Cross Validation. |Completed|
+|  1  | Analisis Kausalitas Eksplanatori (Python)| 42 |Regresi Logistik Biner, alpha = 0.05 | Completed |
+|  2  | Klasifikasi Prediktif (RapidMiner) - Run 1 |  42 | Naïve Bayes, 10-Fold Cross Validation. | Completed |
+|  3  | Klasifikasi Prediktif (RapidMiner) - Run 2 |  123 | Naïve Bayes, 10-Fold Cross Validation. | Completed |
+|  4  | Klasifikasi Prediktif (RapidMiner) - Run 3 |  999 | Naïve Bayes, 10-Fold Cross Validation. | Completed |
+|  5  | Klasifikasi Prediktif (RapidMiner) - Run 4 |  2026 | Naïve Bayes, 10-Fold Cross Validation. | Completed |
 
 **Total skenario:** 2 Skenario Utama (1 Eksplanatori & 1 Prediktif)
-**Run per skenario:** 1 run untuk SPSS, 4 run dengan variasi seed berbeda untuk RapidMiner
+**Run per skenario:** 1 run untuk analisis statistik Python, 4 run dengan variasi seed berbeda untuk RapidMiner
 **Total run keseluruhan:** 5 Run
 
 ---
@@ -126,8 +127,8 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 | Field | Contoh |
 |-------|--------|
 | Seed |42 / 123 / 999 / 2026 |
-| Tool Version | RapidMiner Studio v9.10 / IBM SPSS v26 |
-| Input Dataset | data_tiktokshop_clean.xlsx (N=115) |
+| Tool Version | RapidMiner Studio v9.10 / Python Runtime v3.10+ |
+| Input Dataset | data_tiktokshop_clean.xlsx (N=100) |
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
@@ -147,10 +148,10 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | RapidMiner freeze atau Error Memory Out saat membaca dataset. | Dokumentasikan sisa memori RAM bebas, bersihkan cache aplikasi, pastikan tipe data kolom label sudah diset ke binominal, lalu jalankan ulang (re-run). |
-| Hasil ekstrem | Nilai akurasi model Naïve Bayes melonjak mendadak hingga 100% (overfitting). | Selidiki keterkaitan variabel. Periksa apakah kolom label target (Retensi) tidak sengaja ikut masuk menjadi variabel fitur input (X) |
-| Waktu eksekusi anomali | Kalkulasi proses 10-Fold CV berjalan tidak wajar (> 5 menit). | Investigasi beban CPU pada Windows task manager, matikan aplikasi latar belakang yang mengganggu jalannya memori, lalu ulangi eksekusi. |
-| Inkonsistensi dengan run lain | Nilai Macro-average F1-score turun drastis secara acak pada salah satu variasi nilai seed. | Periksa sebaran partisi data pada lipatan (fold) tersebut. Jangan hapus hasil run tersebut, melainkan catat dan analisis sebagai efek dari ketidakseimbangan data (class imbalance 101 vs 14).  |
+| Data tidak lolos kriteria | Responden mengisi "Tidak" pada filter belanja 3 bulan terakhir. | Langsung keluarkan dari dataset utama (Listwise Deletion) sebelum masuk ke proses pengolahan skor SUS agar tidak membiaskan hasil riset. Ditandai sebagai kegagalan kriteria penyaringan kuesioner. |
+| Hasil ekstrem | Nilai akurasi model Naïve Bayes selalu stagnan di angka 88% di seluruh nilai seed pengujian. | Investigasi distribusi kelas target Y. Hal ini wajar terjadi karena efek Class Imbalance yang dominan (88 responden menjawab 'Ya' dari total 100 data). Catat kondisi ini sebagai karakteristik data lapangan asli. |
+| Inkonsistensi data | Nilai target kelas Y bernilai kosong (Missing Value). | Lakukan pembersihan baris data secara total agar distribusi probabilitas Naïve Bayes tetap berjalan presisi. |
+
 
 **Prinsip:** Detect → Investigate → Document → Decide
 
@@ -162,5 +163,6 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 **Pengalaman sebelumnya:**
 > Ya, pada tugas-tugas kuliah pemrograman atau basis data sebelumnya, saya sering kali melaporkan performa sistem atau akurasi hanya dari satu kali pengujian (single run). Risikonya adalah angka tersebut bisa jadi merupakan faktor kebetulan (keberuntungan acak dari pemisahan dataset) sehingga tidak mewakili kestabilan aslinya saat diuji ulang dengan kondisi data berbeda.
+
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+> Pada riset kali ini, saya menerapkan prinsip kontrol pengujian berganda (multiple runs) dengan mengunci variasi nilai random seed (42, 123, 999, dan 2026) baik di level lingkungan eksekusi Python maupun pada pemisahan data di operator 10-Fold Cross Validation RapidMiner. Dengan cara ini, keabsahan nilai evaluasi performa model Naïve Bayes terbebas dari unsur manipulasi atau bias sebaran data tunggal, sehingga hasil penelitian ini menjadi sepenuhnya kredibel dan sahih untuk dipertahankan di depan dosen penguji Universitas Putra Bangsa.

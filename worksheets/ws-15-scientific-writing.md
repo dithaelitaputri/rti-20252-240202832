@@ -84,28 +84,28 @@ Metrik-X     ✗      ✗       ✓ ←     ✗        ✗
 ```
 PAPER STRUCTURE CHECKLIST
 
-Title   : ____________________
-Target  : [ ] Jurnal  [ ] Konferensi  [ ] Laporan
+Title   : Analisis Eksplanatori Usability Fitur Live Shopping dan Product Reviews Terhadap Retensi Pengguna Gen Z Menggunakan Metode Naïve Bayes
+Target  : [x] Jurnal  [ ] Konferensi  [ ] Laporan
 
 Section Check:
-  [ ] Abstract — masalah, metode, hasil utama, kontribusi (max 250 kata)
-  [ ] Introduction — konteks → gap → RQ → kontribusi → struktur paper
-  [ ] Related Work — concept-centric, gap positioning
-  [ ] Method — reproducible: desain, variabel, metrik, setup, prosedur
-  [ ] Results — tabel + grafik + observasi (tanpa interpretasi)
-  [ ] Discussion — interpretasi, perbandingan, implikasi, limitation
-  [ ] Conclusion — jawaban RQ, kontribusi, future work
+  [x] Abstract — masalah, metode, hasil utama, kontribusi (max 250 kata)
+  [x] Introduction — konteks → gap → RQ → kontribusi → struktur paper
+  [x] Related Work — concept-centric, gap positioning
+  [x] Method — reproducible: desain, variabel, metrik, setup, prosedur
+  [x] Results — tabel + grafik + observasi (tanpa interpretasi)
+  [x] Discussion — interpretasi, perbandingan, implikasi, limitation
+  [x] Conclusion — jawaban RQ, kontribusi, future work
 
 Consistency Matrix:
-  [ ] RQ di Introduction = RQ di Method = RQ di Conclusion
-  [ ] Variabel di Method = variabel di Results
-  [ ] Klaim di Discussion didukung data di Results
-  [ ] Limitasi di Discussion di-address di Conclusion/Future Work
+  [x] RQ di Introduction = RQ di Method = RQ di Conclusion
+  [x] Variabel di Method = variabel di Results
+  [x] Klaim di Discussion didukung data di Results
+  [x] Limitasi di Discussion di-address di Conclusion/Future Work
 
 Writing Quality:
-  [ ] Clarity — mudah dipahami tanpa re-read
-  [ ] Precision — tidak ada istilah ambigu
-  [ ] Conciseness — tidak ada kalimat redundan
+  [x] Clarity — mudah dipahami tanpa re-read
+  [x] Precision — tidak ada istilah ambigu
+  [x] Conciseness — tidak ada kalimat redundan
 ```
 
 ---
@@ -116,13 +116,13 @@ Buat outline paper untuk riset Anda menggunakan struktur IMRAD.
 
 | Section | Konten Utama (2-3 kalimat) | Target Kata |
 |---------|---------------------------|------------|
-| Abstract | *Contoh: Sistem rekomendasi memiliki akurasi tinggi tapi satisfaction rendah. Studi ini menguji CF+context signal. Hasil: satisfaction naik 38% tanpa penurunan RMSE signifikan.* | 200-250 |
-| Introduction | *Contoh: Konteks: gap antara akurasi dan kepuasan pengguna. Gap: tidak ada studi yang mengkombinasikan CF+context. RQ: apakah CF+context meningkatkan satisfaction?* | 500-700 |
-| Related Work | | 700-1000 |
-| Method | | 800-1200 |
-| Results | | 500-800 |
-| Discussion | | 600-900 |
-| Conclusion | | 200-400 |
+| Abstract | *Retensi pengguna social commerce Gen Z krusial namun pemetaan fiturnya masih parsial. Studi ini mengevaluasi usability fitur Live Shopping dan Product Reviews (N=100) menggunakan standar SUS dan memprediksi dampaknya dengan Naïve Bayes. Ditemukan skor SUS berada pada kategori Marginal OK (~62-63) dan performa akurasi Naïve Bayes mencapai konsistensi mutlak 88.00% akibat class imbalance alami.* | 200-250 |
+| Introduction | *Konteks: Fenomena adopsi belanja digital TikTok Shop di kalangan mahasiswa Universitas Putra Bangsa. Gap: Jarang ada penelitian yang menguji pengaruh empiris kegunaan teknis fitur interaktif spesifik langsung terhadap keputusan retensi beli ulang. RQ: Bagaimana pengaruh parsial kegunaan fitur serta bagaimana akurasi Naïve Bayes memprediksi loyalitas konsumen berdasarkan metrik SUS?* | 500-700 |
+| Related Work | Sintesis literatur mengenai evolusi social commerce, metodologi System Usability Scale (SUS) menurut Brooke (1996), serta aplikasi pemodelan probabilitas berbasis Teorema Bayes dalam klasifikasi perilaku konsumen. | 700-1000 |
+| Method | Desain penelitian survei kuantitatif non-eksperimental. Pengumpulan data menggunakan kuesioner terstruktur wajib isi (100 data tersaring bersih), dilanjutkan kalkulasi konversi skor baku SUS, dan pemodelan klasifikasi lewat RapidMiner dengan validasi 10-Fold Cross-Validation. | 800-1200 |
+| Results | Penyajian Tabel Statistik Deskriptif (Skor SUS X1 = 62.48 -+ 8.46$, X2 = 63.18 -+ 8.05). Penyajian matriks performa klasifikasi model Naïve Bayes yang menghasilkan nilai rata-rata akurasi stabil sebesar 88.00% dan Macro F1-Score 0.47 lintas variasi benih acak (seed). | 500-800 |
+| Discussion | Interpretasi ketidaksignifikanan regresi logistik (p > 0.05) dan bias performa Naïve Bayes. Pembahasan batasan toleransi antarmuka (usability tolerance) Gen Z di mana faktor kegunaan sistem tergeser oleh kepuasan nilai ekonomi (promo/harga). | 600-900 |
+| Conclusion | Menyimpulkan jawaban kedua RQ bahwa kegunaan fitur bukan penentu tunggal retensi beli ulang mahasiswa UPB. Merekomendasikan penyeimbangan dataset (oversampling) dan penambahan variabel kepuasan ekonomi untuk riset lanjutan. | 200-400 |
 
 ---
 
@@ -134,21 +134,22 @@ Buat consistency matrix untuk memverifikasi internal consistency paper Anda.
 |--|-------|--------|--------|-----------|-----------|
 | *Contoh: RQ1* | *✓* | *✓* | *✓* | *✓* | *✓* |
 | *Contoh: Metrik-X* | *✗ ←* | *✗ ←* | *✓* | *✗ ←* | *✗ ←* |
-| RQ1 | | | | | |
-| RQ2 | | | | | |
-| Metrik utama | | | | | |
-| Variabel IV | | | | | |
-| Variabel DV | | | | | |
-| Klaim/kontribusi | | | | | |
+| RQ1 |✓ | ✓|✓ |✓ |✓ |
+| RQ2 | ✓|✓ |✓ |✓ |✓ |
+| Metrik utama | ✓|✓ |✓ |✓ |✓ |
+| Variabel IV |✓ | ✓|✓ | ✓|✓ |
+| Variabel DV | ✓|✓ | ✓|✓ | ✓|
+| Klaim/kontribusi |✓ |✓ | ✓|✓ |✓ |
 
 **Isi setiap sel:** ✓ (ada & konsisten), ✗ (missing), ~ (ada tapi inkonsisten)
 
 **Inkonsistensi yang ditemukan:**
-> ___________________________________________________
+> Evaluasi model klasifikasi menggunakan algoritma Naïve Bayes menunjukkan tingkat stabilitas performa dengan pencapaian akurasi rata-rata sebesar 88.00% dan Macro F1-Score 0.47. Nilai tersebut konsisten secara mutlak di seluruh variasi pengujian seed acak lewat skema 10-Fold Cross-Validation.
 
 **Tindakan perbaikan:**
-> ___________________________________________________
+> Menulis "tentang" riset sekadar melaporkan kronologi aktivitas atau deskripsi data mentah seperti sebuah buku harian harian lab tanpa arah yang jelas. Sebaliknya, menulis sebagai "argumen" riset adalah menyusun sebuah narasi pembuktian logis yang kokoh; sejak awal pembaca dipandu melihat adanya celah (gap), lalu ditunjukkan bagaimana metodologi kita hadir untuk menutup celah tersebut secara valid demi melahirkan sebuah kontribusi baru.
 
+Mengubah urutan penulisan dengan mendahulukan metodologi (Method) dan hasil (Results) memberikan fondasi fakta empiris yang mutlak dan stabil terlebih dahulu. Ketika fakta angka riil sudah terkunci (seperti angka akurasi 88.00% dan kegagalan signifikansi regresi), pembahasan (Discussion) dapat ditulis secara objektif tanpa spekulasi liar. Alhasil, bagian pendahuluan (Introduction) yang ditulis belakangan dapat dirancang secara presisi (memiliki benang merah yang kuat) guna mengarahkan pembaca langsung menuju kebenaran hasil temuan riil tersebut tanpa ada janji-janji analisis yang meleset.
 ---
 
 ## Latihan 3 — Writing Quality Check
@@ -160,12 +161,12 @@ Ambil satu paragraf dari tulisan Anda (atau tulis paragraf baru) dan evaluasi ku
 
 | Kriteria | Evaluasi | Perbaikan |
 |----------|---------|-----------|
-| Clarity | *Contoh: kalimat ke-3 ambigu — "performa" bisa berarti accuracy atau speed* | *Ubah menjadi: "accuracy meningkat..."* |
-| Precision | | |
-| Conciseness | | |
+| Clarity | *Penggunaan frasa "model itu bisa menebak" kurang akademis dan kurang jelas dalam konteks data mining.* | *Menggantinya dengan istilah teknis yang tepat seperti "memprediksi probabilitas kelas target".* |
+| Precision | kuesioner SUS yang disebar kemarin" tidak spesifik secara waktu, jumlah data, maupun konteks lokasi ilmiah.  | Menambahkan detail institusi "Universitas Putra Bangsa" serta jumlah data mutlak ($N=100$). |
+| Conciseness | Kalimat terlalu bertele-tele dengan kata penghubung redundan seperti "dilakukan dengan memakai" dan "yang mana". | Menyederhanakan struktur kalimat agar langsung berfokus pada subjek, metode, dan objek penelitian. |
 
 **Paragraf setelah perbaikan:**
-> (tulis paragraf yang sudah diperbaiki)
+> Klasifikasi retensi pengguna di kalangan mahasiswa Universitas Putra Bangsa dilakukan menggunakan algoritma Naïve Bayes pada tools RapidMiner. Pemodelan ini bertujuan untuk memprediksi probabilitas loyalitas responden berdasarkan metrik System Usability Scale (SUS) dengan memanfaatkan sampel bersih sebanyak $N=100$ data.
 
 ---
 
@@ -173,5 +174,5 @@ Ambil satu paragraf dari tulisan Anda (atau tulis paragraf baru) dan evaluasi ku
 
 > Apa perbedaan antara menulis "tentang" riset dan menulis sebagai "argumen" riset? Bagaimana urutan penulisan (Method → Discussion → Introduction) mengubah kualitas tulisan?
 
-> ___________________________________________________
-> ___________________________________________________
+> Menulis "tentang" riset sekadar melaporkan kronologi aktivitas atau deskripsi data mentah seperti sebuah buku harian lab tanpa arah yang jelas. Sebaliknya, menulis sebagai "argumen" riset adalah menyusun sebuah narasi pembuktian logis yang kokoh; sejak awal pembaca dipandu melihat adanya celah (gap), lalu ditunjukkan bagaimana metodologi kita hadir untuk menutup celah tersebut secara valid demi melahirkan sebuah kontribusi baru.
+> Mengubah urutan penulisan dengan mendahulukan metodologi (Method) dan hasil (Results) memberikan fondasi fakta empiris yang mutlak dan stabil terlebih dahulu. Ketika fakta angka riil sudah terkunci (seperti angka akurasi 88.00% dan kegagalan signifikansi regresi), pembahasan (Discussion) dapat ditulis secara objektif tanpa spekulasi liar. Alhasil, bagian pendahuluan (Introduction) yang ditulis belakangan dapat dirancang secara presisi (memiliki benang merah yang kuat) guna mengarahkan pembaca langsung menuju kebenaran hasil temuan riil tersebut tanpa ada janji-janji analisis yang meleset.

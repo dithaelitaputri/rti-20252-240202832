@@ -70,24 +70,24 @@ Hardware:
 
 Software:
   OS        : Windows 10/11 (64-bit)
-  Runtime   : SPSS Statistics v26 (regresi logistik biner)
-              RapidMiner Studio v9.10 (Naïve Bayes + 10-Fold CV)
-  Framework : Google Forms, Microsoft Excel v2019+
+  Runtime   : Python v3.10+ (Lingkungan eksekusi analisis  data statistik) RapidMiner Studio v9.10 (Naïve Bayes + 10-Fold CV)
+  Framework : Jupyter Notebook / VS Code, Google Forms
 
 Dependencies:
 | Library | Version | Sumber | Hash/Checksum |
-|SPSS Statistics|v26 |IBM |Regresi logistik |
-|  RapidMiner | v9.10   | RapidMiner Inc |  Naïve Bayes + CV  |
+|Python Runtime|v3.10+ |Python Software Foundation | Lingkungan komputasi utama pengganti SPSS |
+|  Pandas | v2.0+   | PyPI (pip) |  Naïve Bayes + CV  |
 | Microsoft Excel | v2019+ | Microsoft |  Preprocessing data |
 |Google Forms | - | Google | Kuesioner online |
-|SPSS Amos  | v26 | IBM  | Uji validitas &  |
+|SciPy  | v1.10+ | PyPI (pip)  | Komputasi statistik inferensial & Uji Validitas Pearson  
+|Pingouin |	v0.5+ |	PyPI (pip)	| Perhitungan Uji Reliabilitas Cronbach's Alpha|
+| RapidMiner | v9.10 | RapidMiner Inc |Pemodelan prediktif Naïve Bayes + X-Validation |
 
 Konfigurasi:
   Config file     : Dataset kuesioner
-  Random seed     : Tidak berlaku untuk regresi logistik 
-                    (deterministik). Naïve Bayes menggunakan seed default RapidMiner
-  Hyperparameters : 10-Fold Cross Validation, 
-                    threshold p < 0,05, ambang SUS ≥ 70
+  Random seed     : Terkunci pada np.random.seed(42) di skrip Python untuk kepastian data instrumen.
+  Hyperparameters : 10-Fold Cross Validation, signifikansi p < 0.05, ambang validitas R > 0.183 (N=115),
+ambang reliabilitas Cronbach's Alpha >= 0.60, ambang batas SUS >= 70.
 
 Reproducibility Check:
   [x] Dependency terdokumentasi (requirements.txt / lock file)
@@ -108,19 +108,22 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 | RAM | Minimal 8 GB |
 | GPU | Tidak diperlukan — analisis berbasis statistik dan probabilistik |
 | OS | Windows 10/11 64-bit |
-| Runtime | SPSS Statistics v26 untuk regresi logistik; RapidMiner Studio v9.10 untuk Naïve Bayes |
+| Runtime | Python v3.10+ untuk otomasi pengujian statistik instrumen; RapidMiner Studio v9.10 untuk Naïve Bayes |
 | Framework | Google Forms untuk pengumpulan data; Microsoft Excel untuk preprocessing |
-| Random Seed | Tidak berlaku untuk regresi logistik. Naïve Bayes menggunakan seed default RapidMiner dengan 10-Fold CV |
+| Random Seed | `np.random.seed(42)` pada Python, dan mengaktifkan kunci Local Seed pada operator pengacak data di RapidMiner |
 
 **Dependencies (minimal 5):**
 
 | Library | Version | Alasan Dibutuhkan |
 |---------|---------|-------------------|
-| SPSS Statistics | v26 | Menjalankan regresi logistik biner dan uji signifikansi p-value |
-| RapidMiner Studio | v9.10 | Membangun model Naïve Bayes dan evaluasi 10-Fold Cross Validation |
+| Python Language | v3.10+ | Runtime utama mengeksekusi logika pemrograman pengganti peran software SPSS. |
+| Pandas | v2.0+ | Membaca berkas `.xlsx`, menghitung total skor, dan transformasi matriks data kuesioner. |
+| SciPy | v1.10+ | Menghitung koefisien korelasi Pearson Product Moment secara otomatis untuk uji validitas data. |
+| Pingouin | v0.5+ | Melakukan kalkulasi metrik Cronbach's Alpha secara langsung guna menguji reliabilitas instrumen kuesioner. |
+| RapidMiner Studio | v9.10 | Membangun model Naïve Bayes dengan pembagian sampel data menggunakan teknik 10-Fold Cross Validation. |
 | Microsoft Excel | v2019+ | Preprocessing data — cleaning, pengkodean variabel, format dataset |
 | Google Forms| - | Pengumpulan data kuesioner SUS dari 115 responden secara online |
-| SPSS Amos | v26 | Uji validitas Pearson dan reliabilitas Cronbach's Alpha sebelum analisis utama |
+
 
 ---
 
@@ -130,15 +133,15 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 
 | Run | Seed | Metrik Utama | Hasil Sama? |
 |-----|------|-------------|-------------|
-| 1 | Default RapidMiner | Macro-average F1-score | — |
-| 2 | Default RapidMiner | Macro-average F1-score | [x] Ya / [ ] Tidak |
-| 3 | Default RapidMiner | Macro-average F1-score | [x] Ya / [ ] Tidak |
+| 1 | Python & RM Seed = 42 | Nilai Cronbach's Alpha & F1-score | — |
+| 2 | Python & RM Seed = 42 | Nilai Cronbach's Alpha & F1-score | [x] Ya / [ ] Tidak |
+| 3 | Python & RM Seed = 42 | Nilai Cronbach's Alpha & F1-score | [x] Ya / [ ] Tidak |
 
 **Jika hasil berbeda, kemungkinan penyebab:**
-> Pengacakan partisi data pada operator X-Validation di RapidMiner tidak dikunci menggunakan Local Seed (masih menggunakan sistem acak dinamis), atau adanya perubahan urutan baris data pada file excel sebelum di-import..
+> Nilai seed acak belum dikunci di baris kode teratas skrip Python, atau parameter pembagian data pada operator X-Validation di RapidMiner masih menggunakan *System Random* alih-alih *Local Seed*.
 
 **Checklist kontrol yang sudah diterapkan:**
-- [✅] Random seed di-set di semua level
+- [✅] random seed di-set di semua level
 - [✅] Tidak ada background process yang mengganggu
 - [✅] Cache dibersihkan antar-run
 - [✅] Config file yang sama untuk semua run
@@ -155,16 +158,16 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ## 1. Environment
 >  OS        : Windows 10/11 64-bit
-  Tools     : SPSS Statistics v26, RapidMiner Studio v9.10,
-              Microsoft Excel v2019+
+  Tools     : Python v3.10+, RapidMiner Studio v9.10, VS Code / Jupyter
   Hardware  : Minimal Intel Core i5, RAM 8 GB
   GPU       : Tidak diperlukan
 
 ## 2. Installation
-> 1. Install SPSS Statistics v26 dari IBM
-  2. Install RapidMiner Studio v9.10 dari rapidminer.com
+> 1. Unduh dan instal Python v3.10 atau versi di atasnya.
+  2. Jalankan perintah instalasi library dependency berikut di terminal:
+pip install pandas numpy scipy pingouin openpyxl
   3. Install Microsoft Excel v2019 atau lebih baru
-  4. Tidak diperlukan instalasi library tambahan
+  4. Unduh dan instal RapidMiner Studio v9.10 dari situs resmi rapidminer.com.
 
 ## 3. Data
 > Sumber  : Kuesioner online via Google Forms
@@ -189,10 +192,11 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 ## 5. Configuration
 >  File config  : Dataset kuesioner (data_tiktokshop.xlsx)
   Parameter    : 
-    - Threshold signifikansi  : p < 0,05
-    - Ambang kelayakan SUS    : ≥ 70
-    - Fold CV                 : 10-Fold Cross Validation
-    - Metrik utama            : Macro-average F1-score
+    - Seed penguncian data  : np.random.seed(42)
+- Batas signifikansi p   : p < 0.05
+- Batas r-tabel valid   : R > 0.183 (Untuk nilai responden N=115)
+- Batas reliabilitas    : Alpha >= 0.60
+- Skema validasi model  : 10-Fold Cross Validation di RapidMiner
 
 
 ## 6. Expected Output

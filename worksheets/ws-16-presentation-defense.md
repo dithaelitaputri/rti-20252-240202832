@@ -86,31 +86,37 @@ Prediksi pertanyaan berdasarkan kategori:
 DEFENSE PREPARATION
 
 Slide Deck Plan:
-  Total slides   : ____ (target: 10-12 konten + title/closing)
-  Time per slide : ~2 min
-  Total time     : ____ menit
+  Total slides   : 11 Slides (9 konten + 1 title + 1 closing)
+  Time per slide : ~1.5 - 2 menit
+  Total time     : 15 menit
 
 Slide Outline:
 | # | Pesan Utama | Visual | Waktu |
 |---|-------------|--------|-------|
-| 1 | Title       |        | 30s   |
-| 2 | Problem     |        | 2min  |
-| 3 | Gap + RQ    |        | 2min  |
-| ..|             |        |       |
+| 1 | Judul & Konteks Evaluasi Fitur E-commerce | Judul Slide + Logo Universitas Putra Bangsa | 30s   |
+| 2 | Masalah Retensi Gen Z & Ekspektasi UI/UX  | Diagram alur retensi konsumen digital       | 2min  |
+| 3 | Celah Riset (Gap) & 2 Rumusan Masalah (RQ)| Tabel matriks posisi orisinalitas riset    | 2min  |
+| 4 | Alur Metodologi (Kuesioner SUS & Naïve Bayes) | Flowchart sistem & parameter eksperimen   | 2min  |
+| 5 | Temuan Utama Statistik Deskriptif SUS     | Tabel Skor SUS (X1=62.48, X2=63.18)       | 2min  |
+| 6 | Hasil Prediksi Model Naïve Bayes (10-Fold) | Bar Chart Stabilitas Akurasi 88.00%       | 2min  |
+| 7 | Interpretasi & Failure Analysis Logistik  | Narasi P-value > 0.05 & Class Imbalance   | 2min  |
+| 8 | Batasan Penelitian & Agenda Mendatang     | Tabel matriks limitasi validitas          | 1min  |
+| 9 | Kesimpulan Akhir & Kontribusi Praktis     | Poin konklusi jawaban RQ & Penutup       | 30s   |
+
 
 Anticipatory Defense Matrix:
 | Kategori | Pertanyaan Potensial | Jawaban (CER) |
 |----------|---------------------|---------------|
-| Problem  |                     |               |
-| Gap      |                     |               |
-| Method   |                     |               |
-| Results  |                     |               |
-| Generalization |               |               |
+| Problem  | Mengapa meneliti usability fitur spesifik, bukan platform keseluruhan? | Fitur Live Shopping dan Product Reviews adalah pendorong interaksi utama e-commerce saat ini [C]. Data transaksi menunjukkan mayoritas aktivitas Gen Z terpusat di dua fitur ini [E]. Mengevaluasi secara parsial memberikan rekomendasi perbaikan taktis yang lebih akurat daripada skala global [R]. |
+| Gap      | Apa bedanya dengan riset kepuasan e-commerce yang melimpah? | Riset ini mengisi gap pengaruh teknis kegunaan langsung terhadap retensi [C]. Kebanyakan studi terdahulu hanya berfokus pada persepsi kepercayaan atau harga makro [E]. Mengawinkan SUS dan Naïve Bayes memetakan batas loyalitas berdasarkan kenyamanan operasional [R]. |
+| Method   | Kenapa memakai Naïve Bayes jika terjadi class imbalance ekstrim? | Naïve Bayes efisien dalam menangani data survei dengan fitur independen berdistribusi normal [C]. Skor akurasi tetap tinggi konsisten di angka 88.00% di seluruh seed pengujian [E]. Pemilihan algoritma ini sengaja ditujukan untuk menguji ketangguhan probabilitas dasar tanpa manipulasi sintetik [R]. |
+| Results  | Mengapa hasil regresi logistik menunjukkan p-value tidak signifikan (>0.05)? | Usability sistem bukan variabel penggerak retensi tunggal pada platform sosial [C]. Skor p-value X1=0.899 dan X2=0.644 membuktikan H0 tidak ditolak [E]. Gen Z memiliki toleransi kesalahan tinggi demi mengejar nilai ekonomi promosi dan hiburan belanja [R]. |
+| Generalization | Apakah temuan mahasiswa UPB ini bisa berlaku umum untuk seluruh Gen Z nasional? | Skala generalisasi riset ini terbatas pada kelompok mahasiswa lokal [C]. Karakteristik data N=100 didominasi oleh kelas responden loyal homogen [E]. Hasil ini menjadi boundary condition yang dicatat dalam dokumen limitasi validitas eksternal [R]. |
 
 Latihan:
-  Latihan 1: [tanggal] — [catatan timing & feedback]
-  Latihan 2: [tanggal] — [catatan timing & feedback]
-  Latihan 3: [tanggal] — [catatan timing & feedback]
+  Latihan 1: [29 juni] — [Latihan mandiri menggunakan stopwatch, catatan: durasi awal 17 menit, slide hasil terlalu terburu-buru.]
+  Latihan 2: [6 juli] — [Simulasi bersama partner belajar (Lia), catatan: durasi stabil 14.5 menit, intonasi CER pada slide failure analysis diperkuat.]
+  
 ```
 
 ---
@@ -121,17 +127,17 @@ Rencanakan presentasi 15 menit untuk riset Anda.
 
 | # | Pesan Utama | Visual yang Digunakan | Waktu |
 |---|-------------|----------------------|-------|
-| 1 | *Contoh: Judul + konteks — rekomendasi vs kepuasan* | *Title slide, gambar sistem* | *1 min* |
-| 2 | *Contoh: Problem — RMSE tinggi tapi satisfaction rendah (45/100)* | *Bar chart: satisfaction vs RMSE per sistem* | *2 min* |
-| 3 | *Contoh: Gap + RQ — belum ada CF+context untuk satisfaction* | *Tabel gap literatur* | *1.5 min* |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
+| 1 | *Judul & Konteks Evaluasi Fitur E-commerce* | *Title slide formal dengan NIM 240202832* | *1.0 min* |
+| 2 | *Masalah Retensi Gen Z & Ekspektasi UI/UX* | *Infografik tren penurunan pengguna pasca pemblokiran regulasi.* | *2 min* |
+| 3 | *Celah Riset (Gap) & 2 Rumusan Masalah (RQ)* | *Peta konsep perbandingan literatur terdahulu.* | *1.5 min* |
+| 4 | Alur Metodologi (Kuesioner SUS & Naïve Bayes) | Blok diagram pipeline data mentah hingga model siap uji di RapidMiner.| 2.0min |
+| 5 | Temuan Utama Statistik Deskriptif SUS | Tabel ringkasan mean, median, simpangan baku skor baku SUS. | 2.0 min |
+| 6 |  Hasil Prediksi Model Naïve Bayes (10-Fold) | Bar chart + error bar performa nilai akurasi lintas variasi benih acak. | 2.0 min |
+| 7 | Interpretasi & Failure Analysis Logistik | Tangkapan layar ringkasan koefisien regresi biner dan nilai p-value. | 2.0 min |
+| 8 | Batasan Penelitian & Agenda Mendatang | Tabel evaluasi ancaman internal, eksternal, dan statistikal. | 2.0 min |
+| 9 | Kesimpulan Akhir & Kontribusi Praktis | Poin resume penutup berupa jawaban tegas atas target penelitian.| 2.0 min |
 
-**Total waktu estimasi:** ____ menit
+**Total waktu estimasi:** 15.0 menit
 
 ---
 
@@ -141,11 +147,11 @@ Prediksi 5 pertanyaan yang mungkin diajukan penguji, lalu siapkan jawaban CER.
 
 | # | Kategori | Pertanyaan | Claim | Evidence | Reasoning |
 |---|----------|-----------|-------|----------|-----------|
-| 1 | *Problem* | *Contoh: Mengapa fokus kepuasan, bukan akurasi?* | *Akurasi tinggi tidak menjamin kepuasan* | *Survey: 45/100 satisfaction meski RMSE 0.87* | *Gap antara metrik teknis dan pengalaman pengguna* |
-| 2 | *Method* | *Contoh: Mengapa hanya 3 dataset?* | *3 dataset mewakili variasi: small-clean, medium-clean, medium-noisy* | *Tabel karakteristik dataset di Bab Method* | *Generalisasi perlu validasi lanjut — tercatat sebagai limitasi* |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | *Problem* | *Mengapa fokus pada retensi pengguna Gen Z?* | *Gen Z adalah motor penggerak utama volume transaksi perdagangan sosial saat ini.* | *Data demografi riset menunjukkan 100% sampel aktif bertransaksi rutin.* | *Mempertahankan segmen pasar ini menentukan keberlanjutan bisnis platform jangka panjang.* |
+| 2 | *Method* | *Mengapa formula konversi SUS dari Brooke (1996) harus dikali 2.5?* | *Perkalian tersebut memetakan skor mentah likert ke dalam rentang standar persentil.* | *Formula baku: Total Skor x 2.5 menghasilkan rentang nilai 0 - 100.* | *Standardisasi ini mempermudah interpretasi kategori adopsi sistem secara objektif dan universal.* |
+| 3 | Results | Mengapa sebaran skor standar deviasi SUS berkisar di angka  8? | Variabilitas penilaian responden terhadap kegunaan fitur relatif seragam. | Nilai sigma Live Shopping = 8.46 dan Product Reviews = 8.05. | Sebaran yang sempit membuktikan tidak adanya jawaban ekstrem dari 100 sampel bersihan. |
+| 4 | Failure | Mengapa akurasi Naïve Bayes konstan di 88.00% tanpa fluktuasi? | Terjadi fenomena bias kelas mayoritas organik dalam dataset lapangan. | Distribusi label target bernilai 88 respons "Ya" dan hanya 12 respons "Tidak". |Algoritma memprediksi struktur kelas dominan dengan sempurna sehingga nilai ragamnya nol. |
+| 5 | General | Apa rekomendasi konkret bagi manajemen aplikasi dari hasil riset ini? | Pengembang tidak perlu merombak total antarmuka UI/UX fitur saat ini. | Rata-rata skor SUS (~62) terbukti sudah cukup menjaga keputusan retensi beli ulang konsumen. | Anggaran pengembangan sebaiknya dialokasikan pada subsidi voucher belanja atau peningkatan performa live streaming. |
 
 ---
 
@@ -154,15 +160,17 @@ Prediksi 5 pertanyaan yang mungkin diajukan penguji, lalu siapkan jawaban CER.
 Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan dan evaluasi jawaban Anda.
 
 | # | Pertanyaan | Jawaban Saya | Evaluasi |
-|---|-----------|-------------|---------|| *1* | *Contoh: "Mengapa tidak membandingkan dengan metode Y?"* | *Contoh: "Karena Y memerlukan dataset labeled yang tidak tersedia. Disebutkan sebagai limitasi di halaman X."* | *[✓] Direct [✓] Data-based [✓] Honest* || 1 | | | [ ] Direct [ ] Data-based [ ] Honest |
-| 2 | | | [ ] Direct [ ] Data-based [ ] Honest |
-| 3 | | | [ ] Direct [ ] Data-based [ ] Honest |
+|---|-----------|-------------|---------|
+| *1* | *"Mengapa tidak melakukan teknik oversampling (SMOTE) untuk mengatasi ketimpangan kelas target?"* | *Karena riset ini mengutamakan analisis eksplanatori jujur terhadap kondisi distribusi data alami di lapangan tanpa intervensi sintetik. Hal ini dijelaskan sebagai karakteristik sampel pada Bab 4 halaman 12."* | *[✓] Direct [✓] Data-based [✓] Honest* |
+| 2 |Bagaimana cara menjamin bahwa 100 responden ini mengisi kuesioner secara sungguh-sungguh? | Kami menerapkan pertanyaan filter kelayakan (screening questions) di awal formulir serta mengaktifkan fitur required untuk mencegah adanya butir jawaban yang terlewat. |[ ✓] Direct [ ✓] Data-based [✓] Honest |
+| 3 | Apakah skor SUS 62.48 sudah cukup membuat aplikasi dikategorikan ramah pengguna? | Belum optimal secara mutlak. Berdasarkan skala penilaian Bangor et al. (2008), nilai tersebut berada pada batas bawah kategori 'Marginal OK'. Masih terdapat ruang perbaikan pada indikator konsistensi navigasi. | [✓] Direct [✓] Data-based [✓] Honest |
+
 
 **Pertanyaan yang paling sulit dijawab:**
-> ___________________________________________________
+> Mempertahankan argumentasi logis mengapa nilai p-value regresi yang tidak signifikan (>0.05) tetap merupakan temuan ilmiah yang berharga dan valid untuk dipublikasikan.
 
 **Apa yang perlu disiapkan lebih baik:**
-> ___________________________________________________
+> Membawa salinan cetak tabel referensi konversi SUS menurut matriks skala Bangor dan Brooke agar bisa langsung ditunjukkan sebagai evidence visual pendukung saat sesi tanya jawab sidang.
 
 ---
 
@@ -171,7 +179,7 @@ Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan 
 > Dari seluruh proses WS-01 sampai WS-16 — dari paradigma riset hingga presentasi — bagian mana yang paling mengubah cara Anda berpikir tentang riset? Apa satu hal yang akan selalu Anda terapkan di riset berikutnya?
 
 **Insight terbesar:**
-> ___________________________________________________
+> Paradigma terbesar yang berubah adalah pemahaman bahwa riset ilmiah bukan sekadar mencari hasil yang "selalu sukses" atau membuktikan hipotesis "pasti diterima". Riset sejati adalah sebuah argumen logis yang jujur. Temuan failure analysis—seperti tidak signifikannya pengaruh usability akibat dominasi kelas retensi organik—ternyata memiliki nilai kontribusi akademis yang sangat kaya jika dianalisis secara mendalam menggunakan kerangka Claim-Evidence-Reasoning (CER).
 
 **Yang akan selalu diterapkan:**
-> ___________________________________________________
+> Saya akan selalu menerapkan prinsip kejujuran data dan pemakaian tabel limitasi penelitian secara transparan sejak awal. Mengetahui batas kemampuan model atau sampel riset bukan sebuah kelemahan, melainkan wujud integritas ilmiah tertinggi saya sebagai peneliti mahasiswa di Universitas Putra Bangsa.

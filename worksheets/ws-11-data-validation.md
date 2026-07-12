@@ -66,28 +66,28 @@ Jika gagal di langkah awal → tidak perlu lanjut.
 DATA VALIDATION CHECKLIST
 
 Completeness:
-  [ ] Semua skenario tercakup
-  [ ] Jumlah run sesuai rencana
-  [ ] Tidak ada file output hilang
-  Missing: ____ dari ____ data points
+  [x] Semua skenario tercakup
+  [x] Jumlah run sesuai rencana
+  [x] Tidak ada file output hilang
+  Missing: 0 dari 5 data points
 
 Format Consistency:
-  [ ] Semua file format sama (CSV/JSON/...)
-  [ ] Header konsisten
-  [ ] Tipe data konsisten (numerik tetap numerik)
+  [x] Semua file format sama (Dataset utama dalam format .csv/.xlsx, output model berupa metrik log standar)
+  [x] Header konsisten
+  [x] Tipe data konsisten (Skor kuesioner berupa integer skala 1-5, variabel target berupa kategorikal biner)
 
 Range & Logic:
-  [ ] Nilai dalam range masuk akal
-  [ ] Tidak ada waktu negatif
-  [ ] Metrik 0–100%, tidak di luar range
-  Anomali ditemukan: ____________________
+  [x] Nilai dalam range masuk akal
+  [x] Tidak ada waktu negatif
+  [x] Metrik 0–100%, tidak di luar range
+  Anomali ditemukan: Terdeteksi 15 data tidak lolos screening (tidak berbelanja dalam 3 bulan terakhir) dan langsung disisihkan sebelum kalkulasi fitur.
 
 Cross-Validation:
-  [ ] Run identik → hasil mendekati
-  [ ] Trend konsisten dengan ekspektasi teori
+  [x] Run identik → hasil mendekati
+  [x] Trend konsisten dengan ekspektasi teori
 
 Keputusan:
-  [ ] Data siap analisis
+  [x] Data siap analisis
   [ ] Perlu cleaning
   [ ] Perlu re-run (skenario: ____)
 ```
@@ -100,15 +100,17 @@ Verifikasi apakah semua data yang direncanakan sudah terkumpul.
 
 | Skenario | Run Direncanakan | Run Tercatat | Missing | Alasan |
 |----------|-----------------|-------------|---------|--------|
-| *Contoh: BERT, DS-1* | *10* | *10* | *0* | *—* |
-| *LSTM, DS-3* | *10* | *8* | *2* | *OOM pada run 7 & 9* |
-| | | | | |
-| | | | | |
+| *Kausalitas Eksplanatori (Python)* | *1* | *1* | *0* | *—* |
+| *Klasifikasi Naïve Bayes (Seed 42)* | *1* | *1* | *0* | *-* |
+| *Klasifikasi Naïve Bayes (Seed 123)* | *1* | *1* | *0* | *-* |
+| *Klasifikasi Naïve Bayes (Seed 999)* | *1* | *1* | *0* | *-* |
+| *Klasifikasi Naïve Bayes ((Seed 2026))* | *1* | *1* | *0* | *-* |
 
-**Total expected:** ____ | **Total actual:** ____ | **Missing:** ____
+
+**Total expected:** 5 | **Total actual:** 5 | **Missing:** 0
 
 **Keputusan untuk data missing:**
-> ___________________________________________________
+> Tidak ada data pengujian yang hilang (Zero Missing Data). Semua skrip otomatisasi pengujian model klasifikasi berbasis 10-Fold Cross Validation telah merampungkan komputasinya dan mencatat log metrik secara sempurna.
 
 ---
 
@@ -116,27 +118,33 @@ Verifikasi apakah semua data yang direncanakan sudah terkumpul.
 
 Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
-**Dataset sampel (atau data Anda sendiri):**
+**Dataset akurasi 10-Fold Cross Validation pada model data riil (N=100):**
 
 | Run | Accuracy (%) |
 |-----|-------------|
-| 1 | *91.2* |
-| 2 | *90.8* |
-| 3 | *91.5* |
-| 4 | *78.3* |
-| 5 | *91.0* |
+| 1 | *90.00* |
+| 2 | *90.00* |
+| 3 | *90.00* |
+| 4 | *90.00* |
+| 5 | *90.00* |
+| 6 | *90.00* |
+| 7 | *90.00* |
+| 8 | *90.00* |
+| 9 | *80.00* |
+| 10 | *80.00* |
 
 **Deteksi outlier:**
-- Q1 = ____ | Q3 = ____ | IQR = ____
-- Batas bawah (Q1 - 1.5×IQR) = ____
-- Batas atas (Q3 + 1.5×IQR) = ____
-- Outlier terdeteksi: ____
+- Q1 = 90.00 | Q3 = 90.00 | 
+- IQR = Q3 - Q1 = 90.00 - 90.00 = 0.00
+- Batas bawah (Q1 - 1.5×IQR) = 90.00%
+- Batas atas (Q3 + 1.5×IQR) =  90.00%
+- Outlier terdeteksi: Fold 9 dan Fold 10 (80.00%) karena nilainya berada di bawah ambang batas perhitungan matematika IQR murni.
 
 **Investigasi (untuk setiap outlier):**
 
 | Outlier | Nilai | Kemungkinan Penyebab | Keputusan |
 |---------|-------|---------------------|-----------|
-| *Run 4* | *78.3* | *Contoh: thermal throttling setelah 3 run berturut* | *Re-run dengan cooling interval* |
+| *Fold 9 & 10* | *80.00* | *Penurunan nilai akurasi pada lipatan ke-9 dan ke-10 disebabkan oleh pembagian partisi data kelas minoritas (responden yang memilih 'Tidak' pada Retensi berjumlah 12 data) yang terbagi ke dalam blok fold tersebut, sehingga model mendeteksi adanya variasi karakteristik data asli.* | *Tetap dipertahankan. Penurunan ini bukan disebabkan oleh kesalahan sistem (bug), melainkan dinamika data lapangan yang asli (natural data variance).* |
 
 ---
 
@@ -144,12 +152,12 @@ Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** ____% data terkumpul
-**2. Format:** [ ] Konsisten / [ ] Ada inkonsistensi: ____
-**3. Range check (anomali):** ____
-**4. Logic check:** [ ] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
+**1. Completeness:** 100% data terkumpul
+**2. Format:** [x] Konsisten / [ ] Ada inkonsistensi: ____
+**3. Range check (anomali):** Terdeteksi penurunan performa lokal pada Fold 9 & 10 (80.00%) akibat sebaran class imbalance alami, namun secara matematis seluruh nilai metrik tetap berada pada rentang batas sah evaluasi (0% - 100%).
+**4. Logic check:** [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
 
-**Kesimpulan:** [ ] Data siap analisis / [ ] Perlu tindakan: ____
+**Kesimpulan:** [x] Data siap analisis / [ ] Perlu tindakan: ____
 
 ---
 
@@ -157,5 +165,6 @@ Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
 > Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
 
-> ___________________________________________________
-> ___________________________________________________
+> Data yang benar hanyalah data yang berhasil direkam oleh sistem atau komputer apa adanya (misal, angka sukses keluar di terminal komputer). Sementara data yang dipercaya adalah data yang telah melalui serangkaian pengujian formal untuk membuktikan bahwa struktur internalnya sahih, konsisten, terbebas dari bias tersembunyi, dan logis secara metodologi ilmiah.
+
+> Proses validasi formal tetap mutlak diperlukan sekalipun data dikumpulkan secara otomatis (seperti lewat ekspor otomatis Google Forms). Hal ini karena automasi penulisan log tidak menjamin kebenaran isi; anomali pengisian dari responden yang tidak memenuhi kriteria kelayakan kuesioner tetap berpotensi merusak validitas statistik. Validasi formal memastikan bahwa data tersebut memang layak (trusted) untuk ditarik kesimpulannya dalam sidang skripsi Universitas Putra Bangsa.
