@@ -1,0 +1,13 @@
+# Abstrak / Abstract (01-abstrak.md)
+
+## Abstrak (Bahasa Indonesia)
+Fitur *Live Shopping* dan *Product Reviews* merupakan komponen krusial dalam ekosistem *social commerce* TikTok Shop untuk mendorong konversi penjualan. Namun, kompleksitas informasi dan antarmuka interaktif berpotensi memengaruhi kenyamanan serta loyalitas pengguna. Penelitian ini bertujuan untuk mengevaluasi tingkat *usability* kedua fitur tersebut menggunakan metode *System Usability Scale* (SUS) serta mengukur dampaknya terhadap niat keberlanjutan pengguna (*Continuance Intention*). Data dikumpulkan dari 115 responden aktif platform TikTok Shop. Hasil perhitungan menunjukkan bahwa fitur *Live Shopping* memperoleh rata-rata skor SUS sebesar 62.72 dan fitur *Product Reviews* sebesar 62.52. Berdasarkan standar global SUS, kedua skor tersebut masuk ke dalam kategori *Marginal Low* dengan *Grade D*. Meski performa *usability* sistem berada di bawah standar ideal (skor 68), analisis *Continuance Intention* menunjukkan anomali positif di mana 86.96% responden menyatakan niat untuk terus menggunakan platform di masa mendatang. Temuan ini mengindikasikan adanya faktor nilai eksternal, seperti promo harga dan interaksi langsung, yang mampu mengompensasi kendala *usability* antarmuka sistem.
+
+**Kata Kunci**: TikTok Shop, System Usability Scale, Continuance Intention, Live Shopping, Usability.
+
+---
+
+## Abstract (English)
+*Live Shopping and Product Reviews are crucial components in the TikTok Shop social commerce ecosystem to drive sales conversion. However, the complexity of information and interactive interfaces potentially affects user comfort and loyalty. This study aims to evaluate the usability level of both features using the System Usability Scale (SUS) method and measure its impact on user retention through Continuance Intention analysis. Data were gathered from 115 active TikTok Shop users. The calculation results show that the Live Shopping feature obtained an average SUS score of 62.72, and the Product Reviews feature scored 62.52. Based on SUS global standards, both scores fall into the Marginal Low category with a Grade D. Although the system's usability performance is below the ideal threshold (score 68), the Continuance Intention analysis shows a positive anomaly where 86.96% of respondents expressed their intention to continue using the platform in the future. These findings indicate the presence of external value factors, such as price promotions and live host interactions, which compensate for the interface system's usability constraints.*
+
+**Keywords**: TikTok Shop, System Usability Scale, Continuance Intention, Live Shopping, Usability.

@@ -1,0 +1,10 @@
+# Matriks Literatur (State of the Art)
+
+Peta perbandingan penelitian terdahulu yang memiliki relevansi tinggi dalam rentang tahun 2022-2026 untuk memperkuat orisinalitas riset ini.
+
+| Peneliti & Tahun | Metodologi / Algoritma | Fokus Variabel | Temuan Utama | Perbedaan dengan Riset Ini |
+|---|---|---|---|---|
+| Tambajong et al. (2024) [source: 1] | System Usability Scale (SUS) [source: 1] | Pengalaman Pengguna TikTok Shop secara agregat [source: 1]. | Menilai aspek kenyamanan antarmuka aplikasi secara menyeluruh tanpa memecah per fitur [source: 1]. | Mengevaluasi sistem secara umum, sedangkan riset ini berfokus secara parsial pada fitur *Live Shopping* dan *Product Reviews* [source: 1]. |
+| Mustafa et al. (2024) [source: 1] | Machine Learning (Klasifikasi) [source: 1] | Prediksi Retensi Pengguna Baru di platform Shopee [source: 1]. | Berhasil memetakan pola retensi konsumen dengan pendekatan komputasi data mining [source: 1]. | Objek penelitian berada pada platform e-commerce konvensional dan tidak menggunakan variabel usability teknis [source: 1]. |
+| Abdillah & Fadhilla (2026) [source: 1] | Expectation Confirmation Model (ECM) [source: 1] | Perceived Usefulness, Konfirmasi, dan Kepuasan terhadap *Continuance Intention* [source: 1]. | Fitur *live streaming* berpengaruh terhadap keterlibatan pengguna dan kepuasan pembelian [source: 1]. | Menggunakan analisis hubungan kausal linier terikat ECM, bukan pengujian kombinasi data mining [source: 1]. |
+| Lantang & Maria (2026) [source: 1] | Regresi Logistik Biner & Algoritma Naïve Bayes [source: 1] | Usability Fitur (*Live Shopping* dan *Product Reviews*) terhadap Retensi Pengguna Gen Z [source: 1]. | Usability level fitur berada di kategori *marginal-low* dan tidak berpengaruh signifikan pada retensi, namun Naïve Bayes mencapai akurasi 88.64% [source: 1]. | Menjadi rujukan utama (*baseline paper*). Riset ini mereplikasi metrik tersebut untuk menguji stabilitas performa model pada sampel lokal Universitas Putra Bangsa. |

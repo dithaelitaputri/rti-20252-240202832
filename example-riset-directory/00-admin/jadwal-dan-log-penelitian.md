@@ -6,27 +6,31 @@ Catatan kronologis pelaksanaan tiap tahap (sumber: riwayat commit git & dokumen 
 
 | Tanggal | Tahap | Aktivitas | Referensi |
 |---|---|---|---|
-| 2026-06-12 s.d. 2026-06-13 (commit 01:05) | Tahap 1 & 2 | Perancangan arsitektur/skema database; implementasi API Gateway Go (Echo) — clean architecture, migrasi Sqitch, seed script, docker-compose, verifikasi end-to-end (`CACHE_MODE=none`/`hybrid`, fail-closed/fail-open) | [09-docs/tahap-1-arsitektur-dan-skema-database.md](../09-docs/tahap-1-arsitektur-dan-skema-database.md), [09-docs/tahap-2-implementasi-gateway.md](../09-docs/tahap-2-implementasi-gateway.md) |
-| 2026-06-13 01:05 | Tahap 3 | Implementasi skrip k6 (`legitimate.js`, `attack.js`, `mixed.js`), runner & monitor resource | [09-docs/tahap-3-pengujian-k6.md](../09-docs/tahap-3-pengujian-k6.md) |
-| 2026-06-12 18:05–18:59 (≈54 menit) | Tahap 3 | Eksekusi matrix penuh 50 run (2 `CACHE_MODE` × 5 `traffic_variant` × 5 replikasi), seluruhnya `k6_exit_code = 0` | commit "Mark Tahap 3 complete after running full 50-run k6 matrix" (2026-06-13 02:00) |
-| 2026-06-13 07:41 | Tahap 4 | Pipeline analisis Python (`run_all.py`), 6 tabel CSV + 5 figure PNG, dokumen Tahap 4 diperbarui ke status Selesai | [09-docs/tahap-4-analisis-data.md](../09-docs/tahap-4-analisis-data.md), [06-output/](../06-output/) |
-| 2026-06-13 | Tahap 5 | Draf konten naskah (8 bagian) di `07-manuskrip/`; pelengkapan `01-proposal/`, `02-literatur/`, `03-teori/`, dan laporan penelitian `08-laporan/` | [09-docs/tahap-5-draf-paper.md](../09-docs/tahap-5-draf-paper.md), [08-laporan/laporan-penelitian.md](../08-laporan/laporan-penelitian.md) |
-| 2026-06-13 | Tahap 5 | Verifikasi CVE-2026-48524 (terkonfirmasi via GHSA-fhv5-28vv-h8m8); pencarian 18 referensi literatur nyata & penyusunan bibliografi Mendeley; pelengkapan §2.4 *Related Work* di `03-tinjauan-pustaka.md` dan `07-daftar-pustaka.md`; penyusunan naskah konsolidasi `naskah-jurnal.md`/`.docx` | [02-literatur/matriks-literatur.md](../02-literatur/matriks-literatur.md), [02-literatur/daftar-pustaka.bib](../02-literatur/daftar-pustaka.bib), [07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md) |
-| 2026-06-15 | Tahap 3 & 4 | Perluasan replikasi dari 5 menjadi 40 per kombinasi: regenerasi token JWT legitimate (sebelumnya *expired*), flush cache Redis, eksekusi matrix penuh 400 run (2 `CACHE_MODE` × 5 `traffic_variant` × 40 replikasi) via `run-matrix.sh`, seluruhnya `k6_exit_code = 0` (selesai 2026-06-15T09:53:24Z); dataset 50-run lama diarsipkan ke `04-data/_archive-50run-20260612/`; pipeline analisis (`run_all.py`) dijalankan ulang atas dataset baru; seluruh statistik di `naskah-jurnal.md`/`.docx`, `00-outline.md`, dan dokumen `09-docs/`/`08-laporan/`/`01-proposal/` diperbarui ke n=40 | [09-docs/tahap-3-pengujian-k6.md](../09-docs/tahap-3-pengujian-k6.md), [09-docs/tahap-4-analisis-data.md](../09-docs/tahap-4-analisis-data.md), [04-data/matrix-40run.log](../04-data/matrix-40run.log) |
+| 2026-06-10 s.d. 2026-06-12  | Tahap 1 & 2 | Perancangan instrumen kuesioner System Usability Scale (SUS) untuk fitur Live Shopping (X_1) dan Product Reviews (X_2); penyusunan kuesioner retensi beli ulang via Google Form. | 09-docs/tahap-1-instrumen.md, 01-proposal/proposal.md |
+
+| 2026-06-12 s.d. 2026-06-25 | Tahap 3 | Penyebaran kuesioner secara digital ke mahasiswa Universitas Putra Bangsa; pengumpulan 115 respons masuk. | 04-data/kuesioner-mentah.csv |
+
+| 2026-07-05 | Tahap 4 | Failure Analysis: Menemukan dan mendokumentasikan fenomena class imbalance (88 Ya vs 12 Tidak) yang menyebabkan akurasi Naïve Bayes stabil konstan di angka 88.00%, serta evaluasi ketidaksignifikanan regresi (p > 0.05). | 04-data/dataset-bersih-100.csv | 06-output/failure-analysis.md, 09-docs/tahap-4-analisis.md |
+
+| 2026-07-08 s.d. 2026-07-10 | Tahap 5 | Penyusunan draf laporan riset akhir di folder 08-laporan/ dan pembuatan naskah publikasi di folder 07-manuskrip/; integrasi matriks literatur (metode SUS dan klasifikasi Bayes). | 07-manuskrip/naskah-jurnal.md, 08-laporan/laporan-penelitian.md |
+
+| 2026-07-12 s.d. 2026-07-12 | Tahap 6 | Penyelesaian pembuatan lembar kerja presentasi dan peta pertahanan sidang akhir (WS-16: Presentation & Defense). | worksheets/ws-16-presentation-defense.md |
+
+
 
 ## Status Ringkas
 
-- **Tahap 1–4**: Selesai (dataset final: matrix 400 run / 40 replikasi per kombinasi, 2026-06-15).
-- **Tahap 5**: Konten naskah selesai dengan statistik n=40 (termasuk tinjauan pustaka & verifikasi CVE-2026-48524); menyisakan keputusan bahasa final dan pemindahan ke template jurnal tujuan (dilakukan oleh peneliti).
+- **Tahap 1–4**: Selesai (Dataset final terverifikasi: $N=100$ data bersih dari mahasiswa Universitas Putra Bangsa, pengujian Naïve Bayes via RapidMiner tuntas).
+- **Tahap 5**: Selesai (Draf naskah jurnal dan strategi Q&A presentasi UAS telah siap 100%).
 
 ## Item Tindak Lanjut (Checklist Sebelum Submission)
 
-- [x] Lengkapi matriks literatur dengan paper *related work* nyata ([02-literatur/matriks-literatur.md](../02-literatur/matriks-literatur.md)) — 18 referensi terverifikasi
-- [x] Verifikasi CVE-2026-48524 terhadap basis data NVD/MITRE — terkonfirmasi via GHSA-fhv5-28vv-h8m8 (PyJWT, CVSS 3.7)
-- [ ] Tetapkan bahasa final naskah (Indonesia/Inggris) sesuai jurnal tujuan
-- [ ] Pindahkan konten [07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md)/`.docx` ke template jurnal tujuan
-- [ ] Finalisasi penempatan figure/tabel sesuai gaya jurnal
-- [ ] Review akhir seluruh klaim numerik agar konsisten antar dokumen (lihat daftar pada [07-manuskrip/00-outline.md](../07-manuskrip/00-outline.md))
+- [x] Lengkapi matriks literatur terkait teori System Usability Scale (SUS) dan Teorema Bayes.
+- [x]  Review akhir seluruh klaim numerik agar konsisten di semua dokumen (Skor SUS X_1 = 62.48, X_2 = 63.18, Akurasi = 88.00%).
+- [ ] Pindahkan konten naskah dari 07-manuskrip/naskah-jurnal.md ke dalam format template jurnal target SINTA.
+- [ ] Siapkan file salinan cetak grafik adopsi antarmuka (skala adopsi Bangor et al.) sebagai bukti pendukung visual saat Q&A sidang.
+- [ ] Lakukan push akhir seluruh file dari WS-10 sampai WS-16 ke GitHub branch main.
+
 
 ## Korespondensi
 

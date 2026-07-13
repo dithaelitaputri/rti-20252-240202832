@@ -2,38 +2,31 @@
 
 **Status:** Selesai
 **Acuan arsitektur:** [tahap-1-arsitektur-dan-skema-database.md](tahap-1-arsitektur-dan-skema-database.md)
-**Lokasi kode:** [../05-kode/gateway/](../05-kode/gateway/)
+**Lokasi kode:** [../04-data/](../04-data/)
 
 ---
 
 ## Tujuan
-
-Mengimplementasikan API Gateway (Go + Echo) yang mendukung dua mode operasi melalui `CACHE_MODE`:
-
-- `none` — baseline, setiap request langsung query `signing_keys` di PostgreSQL.
-- `hybrid` — mitigasi penuh: Redis L1 cache (positive/negative) + rate-limit counter permanen di PostgreSQL.
+Melakukan kompilasi, pembersihan, dan standarisasi data mentah kuesioner dari instrumen Google Form (115 responden) ke dalam bentuk penyimpanan data lokal terstruktur (.CSV) agar siap dianalisis dan direplikasi oleh pustaka pengolah statistik.
 
 ## Deliverable
+- [x] Ekstraksi dataset mentah dari instrumen Google Form ke dalam format baris dan kolom yang bersih.
+- [x] Pembersihan data (*data cleaning*) untuk memastikan tidak ada pengisian kuesioner yang menggantung atau terlewat (*missing values*).
+- [x] `descriptive_stats_usability.csv` — Berkas tabel data kompilasi jawaban nilai Likert 1–5 untuk 10 pertanyaan standar SUS dari ke-115 responden (terbagi untuk Fitur *Live Shopping* dan *Product Reviews*).
+- [x] `continuance_intention_stats.csv` — Berkas tabel data rekapitulasi pilihan biner pilihan loyalitas responden ('Ya' atau 'Tidak') beserta ringkasan alasan kualitatifnya.
+- [x] Dokumentasi kamus variabel kuesioner di dalam berkas `README.md` pada folder kode/data untuk acuan replikasi riset lanjutan di Universitas Putra Bangsa.
 
-- [x] Struktur project Go (`cmd/gateway`, `internal/...`) — DDD-lite per bounded-context (`jwks`, `ratelimit`, `jwtauth`, `httpapi`, `platform`, `metrics`)
-- [x] `docker-compose.yml` (gateway, postgres, redis) dengan healthcheck & `depends_on: condition: service_healthy`
-- [x] Migration SQL via Sqitch (`signing_keys`, `rate_limit_counters`, `upsert_rate_limit_counter` function)
-- [x] Skrip seed (`scripts/seed`): generate RSA-2048 keypair, insert ke `signing_keys`, cetak contoh JWT valid (exp +24h)
-- [x] Middleware verifikasi JWT (RS256) + resolusi `kid` (mode `none` dan `hybrid`, fail-closed pada Postgres down, fail-open pada Redis down)
-- [x] Endpoint `/metrics` (Prometheus, prefix `jwksgw_`): cache hit/miss, db query count, rate-limit blocked count, auth outcome, request duration
-- [x] Konfigurasi via environment variable (`.env.example`)
-- [x] `/healthz` (dipakai healthcheck compose & runner Tahap 3)
-- [x] `README.md` dengan command mentah (sqitch deploy, seed, run, docker compose, switch `CACHE_MODE`)
+## Hasil Verifikasi Kesiapan Data
 
 ## Hasil Verifikasi End-to-End
 
-Diverifikasi manual via `docker compose` + curl (lihat [../05-kode/gateway/README.md](../05-kode/gateway/README.md) bagian "Verifikasi end-to-end"):
+Diverifikasi secara mandiri melalui pemeriksaan struktur file menggunakan kakas editor spreadsheet:
 
-- **Hybrid**: valid kid → 200 (cache miss → DB → fill cache) → 200 (cache hit); unknown kid → 401 `invalid_kid` (negative cache) tanpa query DB berulang; flood concurrent dengan `kid` unik → sebagian `429 rate_limited` setelah >20 req/s per `client_ip`.
-- **None**: valid kid selalu 200 dengan `jwksgw_db_queries_total{resolve_key}` naik 1:1 per request; tidak pernah `429`.
-- **Fail-closed**: Postgres down → `503 service_unavailable` (kedua mode). Redis down (hybrid) → kid yang sudah ter-cache tetap `200` (fallback Postgres), `/healthz` melaporkan `redis:false`.
+- **Validitas Baris Data**: Memastikan total baris data kuesioner yang siap diolah berjumlah tepat **115 responden**.
+- **Integritas Isian SUS**: Menguji bahwa seluruh jawaban pertanyaan ganjil (1, 3, 5, 7, 9) dan pertanyaan genap (2, 4, 6, 8, 10) terisi penuh dengan rentang angka 1 sampai 5 (tanpa ada karakter teks ilegal).
+- **Rasio Kontingensi Loyalitas**: Memastikan sebaran data *Continuance Intention* terpetakan dengan komposisi **100 data menyatakan 'Ya'**, **14 data menyatakan 'Tidak'**, dan **1 data kosong/missing**.
 
 ## Catatan Lingkungan
 
-- PostgreSQL container di-expose ke host pada port **5433** (bukan 5432) untuk menghindari konflik dengan instance PostgreSQL lokal di mesin development. Di dalam jaringan Docker, gateway tetap mengakses `postgres:5432`.
-- Sqitch project (`migrations/`) adalah dokumentasi migrasi resmi (deploy/revert/verify), namun di mesin development saat ini `sqitch` CLI tidak punya driver `DBD::Pg` — migrasi diverifikasi dengan menjalankan file `deploy/*.sql` langsung via `psql`. Pastikan environment dengan `DBD::Pg` terpasang untuk `sqitch deploy` penuh.
+- Berkas data CSV disimpan dan dienkode menggunakan format **UTF-8** untuk mencegah terjadinya kerusakan karakter (*corrupted characters*) saat file dibaca oleh berbagai platform perangkat lunak analisis data.
+- Folder penyimpanan data lokal dikondisikan agar mudah diakses langsung oleh *pipeline execution script* Python atau SPSS tanpa perlu melakukan konfigurasi ulang jalur *path directory* absolut komputer.
